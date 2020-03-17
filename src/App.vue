@@ -16,11 +16,16 @@
               </div>
             </header>
             <div class="content">
-              <!-- content -->
-              
+              <router-view></router-view>
             </div>
             <nav class="sticky bottom-0 z-40 bg-white border-t border-gray-300 shadow nav">
               <div class="flex items-center justify-between px-5 pt-4 pb-6">
+                <router-link to="/" class="block text-sm font-medium text-gray-600 hover:text-gray-800" active-class="text-gray-800" exact>
+                  <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 m-auto mb-1">
+                    <path d="M5.64 16.36a9 9 0 1112.72 0l-5.65 5.66a1 1 0 01-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 10-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 110-8 4 4 0 010 8zm0-2a2 2 0 100-4 2 2 0 000 4z"/>
+                  </svg>
+                  <a>Utforsk</a>
+                </router-link>
                 <a href="" class="block text-sm font-medium text-gray-800">
                   <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 m-auto mb-1 text-gray-500">
                     <path d="M5.64 16.36a9 9 0 1112.72 0l-5.65 5.66a1 1 0 01-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 10-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 110-8 4 4 0 010 8zm0-2a2 2 0 100-4 2 2 0 000 4z"/>
@@ -59,6 +64,12 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  
+}
+</script>
 
 <style>
   body {
