@@ -9,6 +9,7 @@ import Profile from '../views/Profile'
 
 Vue.use(VueRouter)
 
+// define project routes
 const routes = [
   {
     path: '/',
