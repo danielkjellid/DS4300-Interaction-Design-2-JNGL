@@ -37,7 +37,7 @@
                   </svg>
                   <a>Liste</a>
                 </router-link>
-                <router-link to="/postition" class="block text-sm font-medium text-gray-600 hover:text-gray-800" active-class="text-gray-800">
+                <router-link to="/position" class="block text-sm font-medium text-gray-600 hover:text-gray-800" active-class="text-gray-800">
                   <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 m-auto mb-1 text-gray-400 hover:text-gray-600" :class="{'text-gray-600' : parentIsActive('/position')}">
                     <path d="M14 5.62l-4 2v10.76l4-2V5.62zm2 0v10.76l4 2V7.62l-4-2zm-8 2l-4-2v10.76l4 2V7.62zm7 10.5L9.45 20.9a1 1 0 01-.9 0l-6-3A1 1 0 012 17V4a1 1 0 011.45-.9L9 5.89l5.55-2.77a1 1 0 01.9 0l6 3A1 1 0 0122 7v13a1 1 0 01-1.45.89L15 18.12z"/>
                   </svg>
@@ -50,7 +50,7 @@
                   <a>Favoritter</a>
                 </router-link>
                 <router-link to="/profile" class="block text-sm font-medium text-gray-600 hover:text-gray-800" active-class="text-gray-800">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 m-auto mb-1 text-gray-400 hover:text-gray-600">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 m-auto mb-1 text-gray-400 hover:text-gray-600" :class="{'text-gray-600' : parentIsActive('/profile')}">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
                   <a>Profil</a>
