@@ -1,7 +1,7 @@
 <template>
   <div>
-      <SearchBar />
-      <PlaceList />
+      <search-bar></search-bar>
+      <place-list></place-list>
   </div>
 </template>
 
@@ -10,10 +10,9 @@ import SearchBar from '../components/SearchBar';
 import PlaceList from '../components/PlaceList';
 
 export default {
-  name: 'Favorites',
   components: {
-    SearchBar,
-    PlaceList
+    'search-bar': SearchBar,
+    'place-list': PlaceList
   }
 }
 </script>

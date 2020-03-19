@@ -1,25 +1,22 @@
 <template>
-    <div class="">
-        <h3>hei</h3>
-        <section>
-            <PlaceItem 
-                v-for="place in places"
-                v-bind:key="place.id"
-                v-bind:placeImg="place.placeImg"
-                v-bind:name="place.name"
-                v-bind:tags="place.tags"
-                v-bind:stars="place.stars"
-                v-bind:reviews="place.reviews"
-            />
-        </section>
+    <div>
+        <place-item 
+            v-for="place in places" 
+            :key="place.id" 
+            :id="place.id" 
+            :placeImg="place.placeImg"
+            :name="place.name"
+            :tags="place.tags"
+            :stars="place.stars"
+            :reviews="place.reviews"
+            ></place-item>
     </div>
 </template>
 
 <script>
-import PlaceItem from './PlaceItem';
+import PlaceItem from './PlaceItem.vue';
 
 export default {
-    name: 'PlaceList',
     data () {
         return {
             places: [
@@ -44,7 +41,7 @@ export default {
         }
     },
     components: {
-        PlaceItem
+        'place-item': PlaceItem
     }
 }
 </script>
