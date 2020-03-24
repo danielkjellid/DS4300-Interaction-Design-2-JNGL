@@ -2,7 +2,11 @@
   <div>
       <search-bar></search-bar>
       <place-list class="mt-5 mx-5 rounded-t-lg"></place-list>
-      <modal></modal>
+      <modal
+        :icon="favoritesModal.icon"
+        :header="favoritesModal.header"
+        :info="favoritesModal.info" 
+        ></modal>
   </div>
 </template>
 
@@ -16,6 +20,16 @@ export default {
     'search-bar': SearchBar,
     'place-list': PlaceList,
     'modal': Modal
+  },
+  data () {
+    return {
+      favoritesModal: {
+        id: 1,
+        icon: 'lightbulb.svg',
+        header: 'Merk sted som favoritter',
+        info: 'Visste du at du kan markere steder som favoritter ved å swipe til venstre?'
+      }
+    }
   }
 }
 </script>
