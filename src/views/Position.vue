@@ -1,12 +1,12 @@
 <template>
 <div>
-  <div class="bg-white">
+  <div class="mb-40 bg-white rounded-custom">
     <div class="flex items-center justify-center py-5 border-b border-gray-300">
       <h1 class="text-base font-medium text-gray-800">Velg posisjon</h1>
     </div>
     <div class="flex items-center justify-between px-5 py-5 border-b border-gray-300" v-for="borough in boroughs" :key="borough.id">
       <div class="flex items-center">
-        <img class="w-12 h-12 rounded-full" :src="'../assets/images/boroughs/' + borough.image">
+        <img class="w-12 h-12 rounded-full" :src="require(`@/assets/images/boroughs/${borough.image}`)">
         <div class="ml-3">
           <p class="text-base font-medium text-gray-800">{{ borough.name }}</p>
           <p class="text-sm font-normal text-gray-600">{{ borough.tagline }}</p>
@@ -34,6 +34,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+  .rounded-custom {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+  }
 </style>
