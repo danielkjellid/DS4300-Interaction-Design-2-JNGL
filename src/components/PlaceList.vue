@@ -1,7 +1,7 @@
 <template>
     <div class="rounded-t">
         <place-item 
-            v-for="place in places" 
+            v-for="place in filteredPlaces" 
             :key="place.id" 
             :id="place.id" 
             :placeImg="place.placeImg"
@@ -11,6 +11,7 @@
             :reviews="place.reviews"
             ></place-item>
     </div>
+   
 </template>
 
 <script>
@@ -19,6 +20,7 @@ import PlaceItem from './PlaceItem.vue';
 export default {
     data () {
         return {
+            search: '',
             places: [
                 {
                     id: 1,
@@ -79,7 +81,15 @@ export default {
     },
     components: {
         'place-item': PlaceItem
+    },
+    computed: {
+    filteredPlaces: function() {
+      return this.places.filter( place => {
+          return place.name.toLowerCase().match(this.search.toLowerCase());
+      })
     }
+  }
+    
 }
 </script>
 
