@@ -97,7 +97,7 @@ export default {
   }
 
   .content {
-    height: 650px;
+    height: 653px;
     overflow-y: auto;
   }
 

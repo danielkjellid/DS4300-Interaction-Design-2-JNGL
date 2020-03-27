@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="bg-white rounded-custom">
+  <div class="bg-white">
     <div class="flex items-center justify-center py-5 border-b border-gray-300">
       <h1 class="text-base font-medium text-gray-800">Velg posisjon</h1>
     </div>
@@ -19,26 +19,29 @@
       </div>
     </div>
   </div>
+  <div class="sticky bottom-0 px-5 py-5 bg-white border-t border-gray-300">
+    <app-search-bar :showFilter="false"></app-search-bar>
+  </div>
 </div>
 
 </template>
 
 <script>
 import { boroughsData } from '../data/boroughs'
+import SearchBar from '../components/SearchBar'
+
 export default {
   data() {
     return {
       boroughs: boroughsData,
     }
+  },
+  components: {
+    'app-search-bar': SearchBar,
   }
 }
 </script>
 
 <style scoped>
-  .rounded-custom {
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-  }
+
 </style>

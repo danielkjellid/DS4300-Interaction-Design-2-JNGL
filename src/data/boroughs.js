@@ -45,7 +45,7 @@ export const boroughsData = [
         id: 8,
         name: 'Nordstrand',
         image: 'nordstrand.jpg',
-        tagline: 'Ekeberg, Lambertseter og Nordstrand'
+        tagline: 'Ekeberg og Nordstrand'
     },
     {
         id: 9,
