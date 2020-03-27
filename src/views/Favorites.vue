@@ -2,6 +2,11 @@
 <div>
     <app-search-bar :filter.sync="filter"></app-search-bar>
     <app-place-list class="mx-5 mt-5 rounted-t-lg" :places="filteredPlaces"></app-place-list>
+    <app-modal
+      icon="lightbulb.svg"
+      header="Merk sted som favoritter"
+      info="Visste du at du kan markere steder som favoritter ved å swipe til venstre?"
+    ></app-modal>
 </div>
 </template>
 
@@ -9,23 +14,19 @@
 import { places } from '../data/places'
 import PlaceList from '../components/PlaceList'
 import SearchBar from '../components/SearchBar'
+import Modal from '../components/Modal'
 
 export default {
     data() {
         return {
             filter: '',
-            places: places,
-            favoritesModal: {
-              id: 1,
-              icon: 'lightbulb.svg',
-              header: 'Merk sted som favoritter',
-              info: 'Visste du at du kan markere steder som favoritter ved å swipe til venstre?'
-            }
+            places: places
         }
     },
     components: {
         'app-place-list': PlaceList,
-        'app-search-bar': SearchBar
+        'app-search-bar': SearchBar,
+        'app-modal': Modal
     },
     computed: {
         filteredPlaces: function() {
