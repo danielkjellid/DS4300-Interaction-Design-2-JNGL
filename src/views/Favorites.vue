@@ -1,6 +1,8 @@
 <template>
 <div>
-    <app-search-bar :filter.sync="filter"></app-search-bar>
+    <div class="px-5 py-5 bg-white shadow">
+        <app-search-bar :query.sync="query" :showFilter="true"></app-search-bar>
+    </div>
     <app-place-list class="mx-5 mt-5 rounted-t-lg" :places="filteredPlaces"></app-place-list>
 </div>
 </template>
@@ -13,7 +15,7 @@ import SearchBar from '../components/SearchBar'
 export default {
     data() {
         return {
-            filter: '',
+            query: '',
             places: places,
             favoritesModal: {
               id: 1,
@@ -30,7 +32,7 @@ export default {
     computed: {
         filteredPlaces: function() {
           return this.places.filter( el => {
-              return el.name.toLowerCase().match(this.filter.toLowerCase());
+              return el.name.toLowerCase().match(this.query.toLowerCase());
           })
         }
     }
