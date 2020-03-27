@@ -19,11 +19,22 @@
 
 <script>
 export default {
-    data: function() {
-        return { show: true };
+    data() {
+        return {
+            show: Boolean
+        }
     },
     methods: {
-        
+        onLoad() {
+            return {show: true}
+        }
+    },
+    mounted() {
+        this.onLoad();
+        console.log('sokrates');
+    },
+    destroyed() {
+        console.log('blæst')
     },
     props: {
         icon: String,
@@ -40,7 +51,6 @@ export default {
     .modal {
         border-top-left-radius: 2rem;
         border-top-right-radius: 2rem;
-       
     }
     .faded {
         height: 100%;
