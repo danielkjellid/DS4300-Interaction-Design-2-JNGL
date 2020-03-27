@@ -6,7 +6,6 @@ import List from '../views/List'
 import Position from '../views/Position'
 import Favorites from '../views/Favorites'
 import Profile from '../views/Profile'
-import Test from '../views/Test'
 
 Vue.use(VueRouter)
 
@@ -37,11 +36,6 @@ const routes = [
     name: 'Profile',
     component: Profile
   },
-  {
-    path: '/test',
-    name: 'test',
-    component: Test,
-  }
 ]
 
 const router = new VueRouter({

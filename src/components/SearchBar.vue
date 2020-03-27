@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-row items-center justify-between h-20 bg-white shadow">
-        <input type="text" v-model="query" class="flex flex-row items-center w-2/3 h-10 p-2 ml-5 mr-3 text-sm text-gray-600 bg-gray-100 border border-gray-300 rounded-md" placeholder="Søk" />
+        <input type="text" @input="updateFilter" class="flex flex-row items-center w-2/3 h-10 p-2 ml-5 mr-3 text-sm text-gray-600 bg-gray-100 border border-gray-300 rounded-md" placeholder="Søk" />
         <div class="flex flex-row items-center justify-between w-1/3 h-10 mr-5 text-gray-500 bg-white border border-gray-300 rounded-md">
             <svg viewBox="0 0 20 20" fill="currentColor" class="h-6 ml-2 w6"><path d="M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h5a1 1 0 000-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM13 16a1 1 0 102 0v-5.586l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 101.414 1.414L13 10.414V16z"></path></svg>
             <div class="text-sm font-semibold text-black">A-Å</div>
@@ -14,16 +14,16 @@
 export default {
     name: 'SearchBar',
     props: {
-        query: {
+        filter: {
             type: String,
             required: false,
         }
     },
     methods: {
-        updateQuery: function(e) {
-            this.$emit('updte:query', e.target.value)
+        updateFilter: function(e) {
+            this.$emit('update:filter', e.target.value)
         }
-    },
+    }
 }
 </script>
 

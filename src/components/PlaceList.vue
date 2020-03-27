@@ -32,12 +32,6 @@ export default {
     components: {
         'place-item': PlaceItem
     },
-    computed: {
-        /*
-        filteredData: function() {
-            return this.places.filter(el => el.toLowerCase().match(this.query.toLowerCase))
-        }*/
-    },
   }
 </script>
 
