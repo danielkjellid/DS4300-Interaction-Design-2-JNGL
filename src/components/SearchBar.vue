@@ -9,7 +9,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
               </div>
-              <input id="search" class="block w-full pl-10 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-md form-input" placeholder="Søk" />
+              <input @input="updateQuery" id="search" class="block w-full pl-10 text-sm text-gray-700 bg-gray-100 border border-gray-300 rounded-md form-input" placeholder="Søk" />
             </div>
         </div>
         <div v-if="showFilter" class="flex items-center justify-between px-1 py-2 ml-3 text-gray-500 bg-white border border-gray-300 rounded-md">
