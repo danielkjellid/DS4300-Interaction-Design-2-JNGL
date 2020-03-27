@@ -12,7 +12,7 @@
                     <p> {{ info }} </p>
                 </div>
             </div>
-            <button @click="close" class="p-3 mt-4 rounded-lg bg-gray-200 w-full font-medium text-sm">Lukk</button>
+            <button @click="show = !show" class="p-3 mt-4 rounded-lg bg-gray-200 w-full font-medium text-sm">Lukk</button>
         </div>
     </div>
 </template>
@@ -23,12 +23,7 @@ export default {
         return { show: true };
     },
     methods: {
-        open: function() {
-            this.show = true;
-        },
-        close: function() {
-            this.show = false;
-        }
+        
     },
     props: {
         icon: String,
@@ -49,6 +44,6 @@ export default {
     }
     .faded {
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.4)
+        background-color: rgba(0, 0, 0, 0.4);
     }
 </style>

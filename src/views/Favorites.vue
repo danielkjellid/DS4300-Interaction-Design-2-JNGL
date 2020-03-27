@@ -23,7 +23,6 @@ export default {
   },
   data () {
     return {
-      
       favoritesModal: {
         id: 1,
         icon: 'lightbulb.svg',
@@ -32,6 +31,7 @@ export default {
       }
     }
   }
+  
   
   
 }
