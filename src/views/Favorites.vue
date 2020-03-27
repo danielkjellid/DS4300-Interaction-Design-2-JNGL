@@ -21,10 +21,6 @@ import Modal from '../components/Modal'
 export default {
     data() {
         return {
-<<<<<<< HEAD
-            filter: '',
-            places: places
-=======
             query: '',
             places: places,
             favoritesModal: {
@@ -33,7 +29,6 @@ export default {
               header: 'Merk sted som favoritter',
               info: 'Visste du at du kan markere steder som favoritter ved å swipe til venstre?'
             }
->>>>>>> 4c93a8fbdb22597bf871f84c2ad87a3106048c87
         }
     },
     components: {
