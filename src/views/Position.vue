@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="mb-40 bg-white rounded-custom">
+  <div class="bg-white rounded-custom">
     <div class="flex items-center justify-center py-5 border-b border-gray-300">
       <h1 class="text-base font-medium text-gray-800">Velg posisjon</h1>
     </div>
