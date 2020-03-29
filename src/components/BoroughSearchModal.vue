@@ -1,9 +1,9 @@
 <template>
 <div>
     <div v-show="searchActive" @click="updateSearchActive" class="absolute top-0 left-0 w-full h-full bg-black opacity-25 cursor-pointer modal-overlay"></div>
-    <div class="absolute left-0 right-0 bg-white border-t border-gray-300 bottom-hackey">
+    <div class="absolute left-0 right-0 bg-white border-t border-gray-300 bottom-search">
       <div class="px-5 py-5">
-        <div @click="filterActive = !filterActive">
+        <div @click="updateSearchActive">
           <app-search-bar :query.sync="query" :showFilter="false"></app-search-bar>
         </div>
         <button class="flex items-center m-auto mt-4 font-medium text-gray-700">
@@ -55,10 +55,8 @@ export default {
     },
     methods: {
         updateSearchActive: function() {
-            this.filterActive == !this.filterActive,
-            this.searchActive == !this.searchActive,
-            console.log(this.searchActive)
-            //this.$emit('update:searchActive', e.target.value)
+            this.filterActive = !this.filterActive
+            this.searchActive = !this.searchActive
         }
     },
     computed: {
@@ -74,8 +72,8 @@ export default {
 }
 </script>
 
-<style>
-    .bottom-hackey {
+<style scoped>
+    .bottom-search {
       bottom: 90px;
     }
 </style>

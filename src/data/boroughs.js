@@ -3,13 +3,13 @@ export const boroughsData = [
         id: 1,
         name: 'Alna',
         image: 'alna.jpg',
-        tagline: 'Furuset, Lindeberg, Tveita og Teisen'
+        tagline: 'Furuset, Lindeberg og Teisen'
     },
     {
         id: 2,
         name: 'Bjerke',
         image: 'bjerke.jpg',
-        tagline: 'Groruddalens utløp mellom sentrum og marka'
+        tagline: 'Linerud, Økern, Årvoll og Veitvet'
     },
     {
         id: 3,

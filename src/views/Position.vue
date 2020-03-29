@@ -3,7 +3,7 @@
   <button @click="selectorActive = !selectorActive">Click me</button>
   <div class="modal" :class="{'opacity-0 pointer-events-none' : !selectorActive}">
     <!--<div class="absolute top-0 left-0 w-full h-full bg-black opacity-25 cursor-pointer modal-overlay"></div>-->
-    <div class="bg-white">
+    <div class="bg-white bottom-list">
       <div class="flex items-center justify-center py-5 border-b border-gray-300">
         <h1 class="text-base font-medium text-gray-800">Velg posisjon</h1>
       </div>
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <app-borough-search :query.sync="query" :searchActive.sync="searchActive" :boroughs="boroughs"></app-borough-search>
+    <app-borough-search :query.sync="query" :searchActive="searchActive" :boroughs="boroughs"></app-borough-search>
   </div>
 </div>
 
@@ -51,7 +51,8 @@ export default {
   .modal {
     transition: opacity 0.25s ease;
   }
-  .bottom-hackey {
-    bottom: 90px;
+
+  .bottom-list {
+    bottom: 120px;
   }
 </style>
