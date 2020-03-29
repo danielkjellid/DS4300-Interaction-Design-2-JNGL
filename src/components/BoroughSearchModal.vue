@@ -17,9 +17,7 @@
         v-show="filterActive"
         v-for="borough in filteredBoroughs.slice(0, 3)" 
         :key="borough.id"
-        :placeName="borough.name"
-        :placeTagline="borough.tagline"
-        :placeImage="require(`@/assets/images/boroughs/${borough.image}`)"
+        :borough="borough"
         >
         </app-borough-item>
     </div>

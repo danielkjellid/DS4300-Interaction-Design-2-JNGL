@@ -1,15 +1,13 @@
 <template>
 <div>
     <div class="bg-white bottom-list">
-      <div class="flex items-center justify-center py-5 border-b border-gray-300">
+      <div class="flex items-center justify-center py-5">
         <h1 class="text-base font-medium text-gray-800">Velg posisjon</h1>
       </div>
       <app-borough-item 
       v-for="borough in boroughs" 
       :key="borough.id"
-      :placeName="borough.name"
-      :placeTagline="borough.tagline"
-      :placeImage="require(`@/assets/images/boroughs/${borough.image}`)"
+      :borough="borough"
       >
       </app-borough-item>
     </div>
