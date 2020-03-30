@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center px-5 py-5 border-b border-gray-300">
+  <router-link :to="{ name: 'PlaceDetail', params: { id: place.id }}" class="flex items-center px-5 py-5 border-b border-gray-300">
     <!-- get image from assets -->
     <img
       class="h-16 rounded"
@@ -48,7 +48,7 @@
         >
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>

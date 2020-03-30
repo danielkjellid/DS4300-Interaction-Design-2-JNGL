@@ -1,56 +1,82 @@
-export const places = [
+export const placeData = [
     {
         id: 1,
-        placeImg: "hokkigai.jpg",
-        name: "Hokkigai Sushi",
-        tags: [
-            {tag: 'Asiatisk'},
-            {tag: 'Wok'},
-            {tag: 'Sushi'}
-        ],
-        stars: "4",
-        reviews: "29 anmeldelser"
+        boroughId: 3,
+        name: 'Frogner 1',
+        image: 'smalhans.jpg',
+        address: 'Bjerregaardsgate 2A, 0172 Oslo',
+        categoryId: 1,
+        website: 'Place website',
+        reviews: {
+            environment: 2,
+            menu: 5,
+            service: 4,
+            value: 5,
+            amountOfReviwes: 29
+        },
+        pricepoint: 'Lavt',
+        bio: 'Place bio',
+        types: ['Michelin', 'Fusion'],
+        tags: ['Uformelt', 'Uteservering', 'Veldedighet', 'Rullestolvennlig']
     },
     {
         id: 2,
-        placeImg: "tunco-haugen.jpg",
-        name: "Tunco Haugen",
-        tags: [
-            {tag: 'Asiatisk'},
-            {tag: 'Wok'}
-        ],
-        stars: "5",
-        reviews: "28 anmeldelser"
+        boroughId: 3,
+        name: 'Frogner 2',
+        image: 'smalhans.jpg',
+        address: 'Bjerregaardsgate 2A, 0172 Oslo',
+        categoryId: 2,
+        website: 'Place website',
+        reviews: {
+            environment: 3,
+            menu: 3,
+            service: 3,
+            value: 3,
+            amountOfReviwes: 29
+        },
+        pricepoint: 'Lavt',
+        bio: 'Place bio',
+        types: ['Michelin', 'Fusion', 'Test'],
+        tags: ['Uformelt', 'Uteservering', 'Veldedighet', 'Rullestolvennlig']
     },
     {
         id: 3,
-        placeImg: "smalhans.jpg",
-        name: "Smalhans",
-        tags: [
-            {tag: 'Michelin'},
-            {tag: 'Fusion'}
-        ],
-        stars: "5",
-        reviews: "53 anmeldelser"
+        boroughId: 3,
+        name: 'Frogner 3',
+        image: 'smalhans.jpg',
+        address: 'Bjerregaardsgate 2A, 0172 Oslo',
+        categoryId: 3,
+        website: 'Place website',
+        reviews: {
+            environment: 4,
+            menu: 5,
+            service: 4,
+            value: 5,
+            amountOfReviwes: 29
+        },
+        pricepoint: 'Lavt',
+        bio: 'Place bio',
+        types: ['Michelin', 'Fusion'],
+        tags: ['Uformelt', 'Uteservering', 'Veldedighet', 'Rullestolvennlig']
     },
     {
         id: 4,
-        placeImg: "umamy.jpg",
-        name: "U'MAMY Homefood",
-        tags: [
-            {tag: 'Norsk'}
-        ],
-        stars: "3",
-        reviews: "98 anmeldelser"
+        boroughId: 3,
+        name: 'Frogner 4',
+        image: 'smalhans.jpg',
+        address: 'Bjerregaardsgate 2A, 0172 Oslo',
+        categoryId: 1,
+        website: 'Place website',
+        reviews: {
+            environment: 4,
+            menu: 5,
+            service: 4,
+            value: 5,
+            amountOfReviwes: 29
+        },
+        pricepoint: 'Lavt',
+        bio: 'Place bio',
+        types: ['Michelin', 'Fusion'],
+        tags: ['Uformelt', 'Uteservering', 'Veldedighet', 'Rullestolvennlig']
     },
-    {
-        id: 5,
-        placeImg: "waldermar.jpg",
-        name: "Waldermar Kebab",
-        tags: [
-            {tag: 'Fastfood'}
-        ],
-        stars: "2",
-        reviews: "16 anmeldelser"
-    } 
 ]

@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 import { boroughsData } from '../data/boroughs'
 import { categoryData } from '../data/categories'
-import { placeData } from '../data/places2'
+import { placeData } from '../data/places'
 
 Vue.use(Vuex)
 
@@ -70,6 +70,9 @@ export default new Vuex.Store({
     },
     getFavorites: state => {
       return state.favorites
+    },
+    getPlace: state => id => {
+      return state.places.find(place => place.id === id)
     },
     getLocation: state => {
       // return selectedBorough array
