@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-4 bg-white rounded-lg shadow">
+    <div class="bg-white rounded-lg shadow">
       <div v-for="place in places" :key="place.id">
         <app-place-item :place="place"></app-place-item>
       </div>

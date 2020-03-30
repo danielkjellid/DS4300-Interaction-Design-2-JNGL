@@ -15,12 +15,15 @@ export default new Vuex.Store({
     selectedBorough: [],
   },
   mutations: {
+    // mutation to initialize the boroughsData array, takes boroughs as an arg
     'INIT_BOROUGHS' (state, boroughs) {
       state.boroughs = boroughs
     },
+    // mutation to initialize the categoriesData array, takes boroughs as an arg
     'INIT_CATEGORIES' (state, categories) {
       state.categories = categories
     },
+    // mutation to initialize the placeData array, takes boroughs as an arg
     'INIT_PLACES' (state, places) {
       state.places = places
     },
@@ -30,6 +33,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    // actions to initialize mutations with data
     initBoroughs: ({ commit }) => {
       commit('INIT_BOROUGHS', boroughsData)
     },
@@ -39,6 +43,8 @@ export default new Vuex.Store({
     initPlaces: ({ commit }) => {
       commit('INIT_PLACES', placeData)
     },
+
+    // action to select location, and update state
     selectLocation: ({ commit }, location) => {
       // commit SET_LOCATION mutation with location as arg
       commit('SET_LOCATION', location)
@@ -59,6 +65,4 @@ export default new Vuex.Store({
       return state.selectedBorough
     }
   },
-  modules: {
-  }
 })
