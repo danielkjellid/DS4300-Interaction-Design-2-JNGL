@@ -246,64 +246,13 @@
       </router-link>
     </div>
     <div v-else class="px-5 py-5">
-      <div v-for="(category, index) in getCategories" :key="category.id" :class="{'mt-10' : index != 0}">
-        <div class="flex justify-between">
-          <h1 class="text-lg font-medium text-gray-800">{{ category.name }}</h1>
-          <a href="" class="flex items-center text-sm font-medium text-gray-800">
-            Se alle
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5 ml-1 text-gray-600">
-              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-            </svg>
-          </a>
-        </div>
-        <div class="mt-4 bg-white rounded-lg shadow">
-          <div v-for="place in getPlaces" :key="place.id">
-            <div v-if="place.boroughId == location.boroughId">
-              <div v-if="place.categoryId == category.id">
-                <div class="flex items-center px-5 py-5 border-b border-gray-300">
-                  <img class="h-16 rounded" v-bind:src="require(`@/assets/images/${place.image}`)" />
-                  <div class="ml-2">
-                    <h2 class="text-base font-medium text-gray-800">{{ place.name }}</h2>
-                    <div class="flex items-center">
-                      <span 
-                        v-for="(type, index) in place.types" 
-                        :key="type" 
-                        class="text-sm text-gray-600"
-                        :class="{'ml-1' : index != 0}"
-                      >
-                        {{ type }}
-                        <span v-if="index != place.types.length -1">&#8226;</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center">
-                      <div class="flex items-center">
-                        <svg 
-                          v-for="(star, index) in 5" 
-                          :key="star" 
-                          class="w-4 h-4" 
-                          fill="currentColor"
-                          :class="index >= ((place.reviews.environment + place.reviews.menu + place.reviews.service + place.reviews.value)/5) ? 'text-gray-400' : 'text-gray-800'"
-                        >
-                          <path d="M5.256 1.006c.295-.93 1.611-.93 1.906 0l.764 2.408a1 1 0 00.953.697H11.4c.963 0 1.37 1.228.597 1.803l-2.081 1.55a1 1 0 00-.356 1.104l.785 2.475c.293.926-.772 1.685-1.55 1.105l-1.989-1.48a1 1 0 00-1.194 0l-1.989 1.48c-.778.58-1.843-.179-1.55-1.105l.785-2.475a1 1 0 00-.356-1.105L.421 5.913c-.773-.574-.366-1.802.597-1.802h2.521a1 1 0 00.953-.697l.764-2.408z"/>
-                        </svg>
-                      </div>
-                      <span class="ml-1 text-sm text-gray-600">{{ place.reviews.amountOfReviwes }} anm.</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <a href="#" class="block py-3 mx-auto text-sm text-center text-gray-700">
-            Se alle
-          </a>
-        </div>
-      </div>
+        <app-selected-place-list :places="getPlaces" :location="location" :categories="getCategories"></app-selected-place-list>
     </div>
   </div>
 </template>
 
 <script>
+import SelectedPlaceList from '../components/SelectedPlaceList'
 
 export default {
   computed: {
@@ -316,6 +265,9 @@ export default {
     location() {
       return this.$store.getters.getLocation
     }
+  },
+  components: {
+    'app-selected-place-list': SelectedPlaceList
   }
-};
+}
 </script>

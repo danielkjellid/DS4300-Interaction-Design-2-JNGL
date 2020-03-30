@@ -1,28 +1,15 @@
 <template>
-    <div class="rounded-t">
-        <place-item 
-            v-for="place in places" 
-            :key="place.id" 
-            :id="place.id" 
-            :placeImg="place.placeImg"
-            :name="place.name"
-            :tags="place.tags"
-            :stars="place.stars"
-            :reviews="place.reviews"
-            ></place-item>
+    <div class="mt-4 bg-white rounded-lg shadow">
+      <div v-for="place in places" :key="place.id">
+        <app-place-item :place="place"></app-place-item>
+      </div>
     </div>
-   
 </template>
 
 <script>
-import PlaceItem from './PlaceItem.vue';
+import PlaceItem from './PlaceItem';
 
 export default {
-    data () {
-        return {
-            search: '',
-        } 
-    },
     props: {
         places: {
             type: Array,
@@ -30,11 +17,7 @@ export default {
         }
     },
     components: {
-        'place-item': PlaceItem
+        'app-place-item': PlaceItem
     },
   }
 </script>
-
-<style scoped>
-    
-</style>

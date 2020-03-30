@@ -37,10 +37,13 @@ export default {
         'app-modal': Modal
     },
     computed: {
-        filteredPlaces: function() {
-          return this.places.filter( el => {
+        filteredPlaces() {
+          return this.getPlaces.filter( el => {
               return el.name.toLowerCase().match(this.query.toLowerCase());
           })
+        },
+        getPlaces() {
+            return this.$store.getters.getPlaces
         }
     }
 }
