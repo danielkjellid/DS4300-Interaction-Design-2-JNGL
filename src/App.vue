@@ -41,6 +41,11 @@ export default {
   components: {
     'app-header': Header,
     'app-footer': Footer,
+  },
+  created() {
+    this.$store.dispatch('initBoroughs')
+    this.$store.dispatch('initCategories')
+    this.$store.dispatch('initPlaces')
   }
 }
 </script>

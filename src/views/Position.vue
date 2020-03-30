@@ -5,19 +5,18 @@
         <h1 class="text-base font-medium text-gray-800">Velg posisjon</h1>
       </div>
       <app-borough-item 
-      v-for="borough in boroughs" 
-      :key="borough.id"
-      :borough="borough"
+        v-for="borough in getBoroughs" 
+        :key="borough.id"
+        :borough="borough"
       >
       </app-borough-item>
     </div>
-    <app-borough-search :query.sync="query" :searchActive="searchActive" :boroughs="boroughs"></app-borough-search>
+    <app-borough-search :query.sync="query" :searchActive="searchActive" :boroughs="getBoroughs"></app-borough-search>
 </div>
 
 </template>
 
 <script>
-import { boroughsData } from '../data/boroughs'
 import BoroughSearchModal from '../components/BoroughSearchModal'
 import BoroughItem from '../components/BoroughItem'
 
@@ -25,15 +24,19 @@ export default {
   data() {
     return {
       query: '',
-      boroughs: boroughsData,
       selectorActive: false,
       searchActive: false,
     }
   },
+  computed: {
+    getBoroughs() {
+      return this.$store.getters.getBoroughs
+    },
+  },
   components: {
     'app-borough-search': BoroughSearchModal,
     'app-borough-item': BoroughItem,
-  }
+  },
 }
 </script>
 

@@ -246,18 +246,18 @@
       </router-link>
     </div>
     <div v-else class="px-5 py-5">
-      <div v-for="(category, index) in categories" :key="category.id" :class="{'mt-10' : index != 0}">
+      <div v-for="(category, index) in getCategories" :key="category.id" :class="{'mt-10' : index != 0}">
         <div class="flex justify-between">
           <h1 class="text-lg font-medium text-gray-800">{{ category.name }}</h1>
-          <a href="" class="flex items-center text-sm font-medium text-gray-900">
+          <a href="" class="flex items-center text-sm font-medium text-gray-800">
             Se alle
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5 ml-2 text-gray-600">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-5 h-5 ml-1 text-gray-600">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
             </svg>
           </a>
         </div>
         <div class="mt-4 bg-white rounded-lg shadow">
-          <div v-for="place in places" :key="place.id">
+          <div v-for="place in getPlaces" :key="place.id">
             <div v-if="place.boroughId == location.boroughId">
               <div v-if="place.categoryId == category.id">
                 <div class="flex items-center px-5 py-5 border-b border-gray-300">
@@ -294,9 +294,9 @@
               </div>
             </div>
           </div>
-          <div class="py-3 mx-auto text-center">
-            <a href="" class="text-sm text-gray-700">Se alle</a>
-          </div>
+          <a href="#" class="block py-3 mx-auto text-sm text-center text-gray-700">
+            Se alle
+          </a>
         </div>
       </div>
     </div>
@@ -304,22 +304,18 @@
 </template>
 
 <script>
-import { categories } from '../data/categories'
-import { places2 } from '../data/places2'
 
 export default {
-  data() {
-    return {
-      categories: categories,
-      places: places2,
-    }
-  },
   computed: {
+    getCategories() {
+      return this.$store.getters.getCategories
+    },
+    getPlaces() {
+      return this.$store.getters.getPlaces
+    },
     location() {
       return this.$store.getters.getLocation
     }
   }
 };
 </script>
-
-<style></style>
