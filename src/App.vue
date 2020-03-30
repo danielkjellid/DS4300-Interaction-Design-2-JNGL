@@ -28,19 +28,14 @@ import Footer from './components/TheFooter'
 import Header from './components/TheHeader'
 
 export default {
-  methods: {
-    // method to check if parent in router link is active to apply class to icon
-    parentIsActive(input) {
-      const paths = Array.isArray(input) ? input : [input];
-
-      return paths.some(path => {
-        return this.$route.path.indexOf(path) === 0 // current path will start with this path string
-      });
-    }
-  },
   components: {
     'app-header': Header,
     'app-footer': Footer,
+  },
+  created() {
+    this.$store.dispatch('initBoroughs')
+    this.$store.dispatch('initCategories')
+    this.$store.dispatch('initPlaces')
   }
 }
 </script>

@@ -1,4 +1,4 @@
-export const places2 = [
+export const placeData = [
     {
         id: 1,
         boroughId: 3,

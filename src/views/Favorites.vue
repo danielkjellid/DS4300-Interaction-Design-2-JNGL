@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <keep-alive>
         <div>
             <div class="px-5 py-5 bg-white shadow">
@@ -13,6 +14,21 @@
             ></app-modal>
         </div>
     </keep-alive>
+=======
+<div>
+    <div class="px-5 py-5 bg-white shadow">
+        <app-search-bar :query.sync="query" :showFilter="true"></app-search-bar>
+    </div>
+    <div class="px-5 py-5">
+        <app-place-list :places="filteredPlaces"></app-place-list>
+    </div>
+    <app-modal
+      icon="lightbulb.svg"
+      header="Merk sted som favoritter"
+      info="Visste du at du kan markere steder som favoritter ved å swipe til venstre?"
+    ></app-modal>
+</div>
+>>>>>>> a3ef8de410267a0fac0cbaf0e349e02b4a952844
 </template>
 
 <script>
@@ -43,10 +59,13 @@ export default {
         this.hide();
     },
     computed: {
-        filteredPlaces: function() {
-          return this.places.filter( el => {
+        filteredPlaces() {
+          return this.getPlaces.filter( el => {
               return el.name.toLowerCase().match(this.query.toLowerCase());
           })
+        },
+        getPlaces() {
+            return this.$store.getters.getPlaces
         }
     }
 }

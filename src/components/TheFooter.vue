@@ -1,6 +1,7 @@
 <template>
   <footer class="sticky bottom-0 z-40 bg-white border-t border-gray-300 shadow nav">
     <nav class="flex items-center justify-between px-5 pt-4 pb-6">
+      <!-- the app routes controlled by vue-router -->
       <router-link
         to="/"
         class="block text-sm font-medium text-gray-600 hover:text-gray-800"
