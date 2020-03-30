@@ -1,7 +1,7 @@
 <template>  
     <div class="mb-px bg-white shadow place-card">
         <div class="flex flex-row items-center p-5">
-            <img class="rounded" v-bind:src="require(`@/assets/images/${placeImg}`)" />
+            <img class="rounded" v-bind:src="require(`@/assets/images/places/${placeImg}`)" />
             <div class="ml-3">
                 <p class="font-medium text name">{{ name }}</p>
                 <div class="flex flex-row">

@@ -1,15 +1,18 @@
 <template>
-<div>
-    <div class="px-5 py-5 bg-white shadow">
-        <app-search-bar :query.sync="query" :showFilter="true"></app-search-bar>
-    </div>
-    <app-place-list class="mx-5 mt-5 rounted-t-lg" :places="filteredPlaces"></app-place-list>
-    <app-modal
-      icon="lightbulb.svg"
-      header="Merk sted som favoritter"
-      info="Visste du at du kan markere steder som favoritter ved å swipe til venstre?"
-    ></app-modal>
-</div>
+    <keep-alive>
+        <div>
+            <div class="px-5 py-5 bg-white shadow">
+                <app-search-bar :query.sync="query" :showFilter="true"></app-search-bar>
+            </div>
+            <app-place-list class="mx-5 mt-5 rounded-t-lg" :places="filteredPlaces"></app-place-list>
+            <app-modal
+            v-if="isFirstLoad"
+            icon="lightbulb.svg"
+            header="Merk sted som favoritter"
+            info="Visste du at du kan markere steder som favoritter ved å swipe til venstre?"
+            ></app-modal>
+        </div>
+    </keep-alive>
 </template>
 
 <script>
@@ -23,18 +26,21 @@ export default {
         return {
             query: '',
             places: places,
-            favoritesModal: {
-              id: 1,
-              icon: 'lightbulb.svg',
-              header: 'Merk sted som favoritter',
-              info: 'Visste du at du kan markere steder som favoritter ved å swipe til venstre?'
-            }
+            isFirstLoad: true
         }
     },
     components: {
         'app-place-list': PlaceList,
         'app-search-bar': SearchBar,
         'app-modal': Modal
+    },
+    methods: {
+        hide() {
+            return this.isFirstLoad = false;
+        }
+    },
+    mounted() {
+        this.hide();
     },
     computed: {
         filteredPlaces: function() {
