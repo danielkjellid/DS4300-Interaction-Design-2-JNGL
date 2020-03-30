@@ -13,6 +13,7 @@ export default new Vuex.Store({
     categories: [],
     places: [],
     selectedBorough: [],
+    favorites: []
   },
   mutations: {
     // mutation to initialize the boroughsData array, takes boroughs as an arg
@@ -26,6 +27,10 @@ export default new Vuex.Store({
     // mutation to initialize the placeData array, takes boroughs as an arg
     'INIT_PLACES' (state, places) {
       state.places = places
+    },
+    // mutation to initialize the favoritesData array, takes boroughs as an arg
+    'INIT_FAVORITES' (state, favorites) {
+      state.favorites = favorites
     },
     // mutation to add location to the selectedBorough array, takes location as an arg
     'SET_LOCATION' (state, location) {
@@ -43,6 +48,9 @@ export default new Vuex.Store({
     initPlaces: ({ commit }) => {
       commit('INIT_PLACES', placeData)
     },
+    initFavorites: ({ commit }) => {
+      commit('INIT_FAVORITES', this.favorites) 
+    },
 
     // action to select location, and update state
     selectLocation: ({ commit }, location) => {
@@ -59,6 +67,9 @@ export default new Vuex.Store({
     },
     getPlaces: state => {
       return state.places
+    },
+    getFavorites: state => {
+      return state.favorites
     },
     getLocation: state => {
       // return selectedBorough array
