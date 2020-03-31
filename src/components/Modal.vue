@@ -1,6 +1,6 @@
 <template>
-    <div class="absolute inset-0 w-full z-50 flex items-end faded" v-show="show">
-        <div class="z-60 bg-white border text-center p-6 m-3 modal rounded-lg" v-show="show">
+    <div class="absolute inset-0 w-full z-50 flex items-end faded" v-if="show">
+        <div class="z-60 bg-white border text-center p-6 m-3 modal rounded-lg" v-if="show">
             <div class="flex justify-center py-3">
                 <img :src="require(`@/assets/images/modalicons/${icon}`)" />
             </div>
@@ -21,7 +21,7 @@
 export default {
     data() {
         return {
-            show: false
+            show: Boolean
         }
     },
     props: {
