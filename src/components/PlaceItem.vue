@@ -3,7 +3,7 @@
     <!-- get image from assets -->
     <img
       class="h-16 rounded"
-      :src="require(`@/assets/images/${place.image}`)"
+      :src="require(`@/assets/images/places/${place.image}`)"
     />
     <div class="ml-2">
       <h2 class="text-base font-medium text-gray-800">{{ place.name }}</h2>
