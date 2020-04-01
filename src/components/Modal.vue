@@ -12,7 +12,7 @@
                     <p> {{ info }} </p>
                 </div>
             </div>
-            <button @click="show = !show" class="p-3 mt-4 rounded-lg bg-gray-200 w-full font-medium text-sm">Lukk</button>
+            <button @click="onClick" class="p-3 mt-4 rounded-lg bg-gray-200 w-full font-medium text-sm">Lukk</button>
         </div>
     </div>
 </template>
@@ -27,7 +27,27 @@ export default {
     props: {
         icon: String,
         header: String,
-        info: String
+        info: String,
+        tooltipType: {
+            type: String,
+            required: false
+        },
+        callback: {
+            type: Function,
+            required: false
+        }
+    },
+    mounted() {
+        console.log(this.props)
+    },
+
+    methods: {
+        onClick() {
+            this.callback && this.callback;
+            this.show = !this.show;
+            this.tooltipType && this.$store.dispatch("updateTooltipShown", this.tooltipType);
+            console.log(this.$store.state);
+        }
     }
 }
 </script>

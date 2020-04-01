@@ -13,7 +13,12 @@ export default new Vuex.Store({
     categories: [],
     places: [],
     selectedBorough: [],
-    favorites: []
+    favorites: [],
+    tooltipShown: {
+      addFavorite: false,
+      removeFavorite: false
+    },
+    modal: undefined
   },
   mutations: {
     // mutation to initialize the boroughsData array, takes boroughs as an arg
@@ -32,9 +37,31 @@ export default new Vuex.Store({
     'INIT_FAVORITES' (state, favorites) {
       state.favorites = favorites
     },
+    'ADD_FAVORITE' (state, favorite) {
+      state.favorites = [ ...state.favorites, favorite ]
+    },
     // mutation to add location to the selectedBorough array, takes location as an arg
     'SET_LOCATION' (state, location) {
       state.selectedBorough = location
+    },
+    'SET_MODAL' (state, modal) {
+      state.modal = !state.modal ? {...modal} : undefined
+    },
+    'UPDATE_TOOLTIP_SHOWN' (state, type) {
+
+      switch (type) {
+        case 'add_favorite':
+          state.tooltipShown = { ...state.tooltipShown, addFavorite: true }
+          break;
+          
+        case 'remove_favorite':
+          state.tooltipShown = { ...state.tooltipShown, removeFavorite: true }
+          break;
+
+        default:
+          break;
+      } 
+      
     },
   },
   actions: {
@@ -48,10 +75,16 @@ export default new Vuex.Store({
     initPlaces: ({ commit }) => {
       commit('INIT_PLACES', placeData)
     },
-    initFavorites: ({ commit }) => {
-      commit('INIT_FAVORITES', this.favorites) 
+    addFavorite: ({ commit }, favorite) => {
+      commit('ADD_FAVORITE', favorite)
+    },
+    updateTooltipShown: ({ commit }, type) => {
+      commit('UPDATE_TOOLTIP_SHOWN', type)
     },
 
+    setModal: ({commit}, modal) => {
+      commit('SET_MODAL', modal)
+    },
     // action to select location, and update state
     selectLocation: ({ commit }, location) => {
       // commit SET_LOCATION mutation with location as arg
@@ -77,6 +110,21 @@ export default new Vuex.Store({
     getLocation: state => {
       // return selectedBorough array
       return state.selectedBorough
+    },
+    getTooltipShown: state => type => {
+      switch (type) {
+        case 'add_favorite':
+          return state.tooltipShown.addFavorite
+          
+        case 'remove_favorite':
+          return state.tooltipShown.removeFavorite
+          
+        default:
+          return false;
+      } 
+    },
+    getModal: state => {
+      return state.modal
     }
   },
 })

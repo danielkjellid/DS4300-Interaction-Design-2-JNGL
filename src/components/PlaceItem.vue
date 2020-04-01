@@ -1,12 +1,11 @@
 <template>
-  <router-link :to="{ name: 'PlaceDetail', params: { id: place.id }}" class="flex items-center px-5 py-5 border-b border-gray-300">
+   <router-link :to="{ name: 'PlaceDetail', params: { id: place.id }}" class="flex items-center px-5 py-5 border-b border-gray-300"> 
     <!-- get image from assets -->
+    
     <img
       class="h-16 rounded"
       :src="require(`@/assets/images/places/${place.image}`)"
     />
-    <swipe class="my-swipe">
-        <swipe-item>
             <div class="ml-2">
                 <h2 class="text-base font-medium text-gray-800">{{ place.name }}</h2>
                 <div class="flex items-center">
@@ -48,25 +47,34 @@
                     <span class="ml-1 text-sm text-gray-600"
                     >{{ place.reviews.amountOfReviwes }} anm.</span
                     >
+                    <button @click="setFavorite">Favoritt</button>
                 </div>
             </div>
-        </swipe-item>
-    </swipe>
+        
   </router-link>
 </template>
 
 <script>
-import { Swipe, SwipeItem } from 'vue-swipe';
+
 export default {
   props: {
     place: {
       type: Object,
       required: true
     },
-    components: {
-        'swipe': Swipe,
-        'swipe-item': SwipeItem
+    setFavoriteBtn: {
+
+    },
+    removeFavoriteBtn: {
+
+    }
+  },
+  methods: {
+    setFavorite() {
+      console.log(this.place);
+      this.$store.dispatch("addFavorite", this.place);
+      console.log(this.$store.getters.getFavorites)
     }
   }
-};
+}
 </script>
