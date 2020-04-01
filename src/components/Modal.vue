@@ -1,6 +1,6 @@
 <template>
-    <div class="absolute inset-0 w-full z-50 flex items-end faded" v-show="show">
-        <div class="z-60 bg-white border text-center p-6 m-3 modal rounded-lg" v-show="show">
+    <div class="absolute inset-0 w-full z-50 flex items-end faded" v-if="show">
+        <div class="z-60 bg-white border text-center p-6 m-3 modal rounded-lg" v-if="show">
             <div class="flex justify-center py-3">
                 <img :src="require(`@/assets/images/modalicons/${icon}`)" />
             </div>
@@ -12,7 +12,7 @@
                     <p> {{ info }} </p>
                 </div>
             </div>
-            <button @click="show = !show" class="p-3 mt-4 rounded-lg bg-gray-200 w-full font-medium text-sm">Lukk</button>
+            <button @click="onClick" class="p-3 mt-4 rounded-lg bg-gray-200 w-full font-medium text-sm">Lukk</button>
         </div>
     </div>
 </template>
@@ -21,13 +21,33 @@
 export default {
     data() {
         return {
-            show: false
+            show: Boolean
         }
     },
     props: {
         icon: String,
         header: String,
-        info: String
+        info: String,
+        tooltipType: {
+            type: String,
+            required: false
+        },
+        callback: {
+            type: Function,
+            required: false
+        }
+    },
+    mounted() {
+        console.log(this.props)
+    },
+
+    methods: {
+        onClick() {
+            this.callback && this.callback;
+            this.show = !this.show;
+            this.tooltipType && this.$store.dispatch("updateTooltipShown", this.tooltipType);
+            console.log(this.$store.state);
+        }
     }
 }
 </script>
