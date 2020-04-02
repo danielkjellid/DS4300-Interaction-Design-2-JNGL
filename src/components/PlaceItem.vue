@@ -47,7 +47,7 @@
                     <span class="ml-1 text-sm text-gray-600"
                     >{{ place.reviews.amountOfReviwes }} anm.</span
                     >
-                    <button @click="setFavorite">Favoritt</button>
+                    <button @click="handleFavorite"> {{btnText}} </button>
                 </div>
             </div>
         
@@ -62,18 +62,20 @@ export default {
       type: Object,
       required: true
     },
-    setFavoriteBtn: {
-
-    },
-    removeFavoriteBtn: {
-
-    }
+    type: String,
+    btnText: String
   },
   methods: {
-    setFavorite() {
-      console.log(this.place);
-      this.$store.dispatch("addFavorite", this.place);
-      console.log(this.$store.getters.getFavorites)
+    // Adds a place to favorites array, or removes it based on the type
+    handleFavorite() {
+      if(this.type === "set_favorite") {
+         if(!this.$store.getters.getFavorites.find(e => e.id === this.place.id))
+        this.$store.dispatch("addFavorite", this.place);
+      else 
+        return alert("This place already exists")
+      } else if(this.type === "remove_favorite"){
+         this.$store.dispatch("removeFavorite", this.place.id);
+      }
     }
   }
 }

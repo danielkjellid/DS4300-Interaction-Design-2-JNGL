@@ -40,6 +40,9 @@ export default new Vuex.Store({
     'ADD_FAVORITE' (state, favorite) {
       state.favorites = [ ...state.favorites, favorite ]
     },
+    'REMOVE_FAVORITE' (state, id) {
+      state.favorites = state.favorites.filter(f => f.id !== id)
+    },
     // mutation to add location to the selectedBorough array, takes location as an arg
     'SET_LOCATION' (state, location) {
       state.selectedBorough = location
@@ -77,6 +80,9 @@ export default new Vuex.Store({
     },
     addFavorite: ({ commit }, favorite) => {
       commit('ADD_FAVORITE', favorite)
+    },
+    removeFavorite: ({ commit }, id) => {
+      commit('REMOVE_FAVORITE', id)
     },
     updateTooltipShown: ({ commit }, type) => {
       commit('UPDATE_TOOLTIP_SHOWN', type)

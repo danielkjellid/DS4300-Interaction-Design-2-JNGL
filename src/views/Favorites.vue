@@ -4,7 +4,13 @@
             <app-search-bar :query.sync="query" :showFilter="true"></app-search-bar>
         </div>
         <p class="font-medium text-lg px-5 py-5">Favoritter</p>
-        <app-place-list class="mx-5 rounded-t-lg" :places="filteredPlaces"></app-place-list>
+        <app-place-list btnText="Slett" type="remove_favorite" class="mx-5 rounded-t-lg" :places="filteredPlaces"></app-place-list>
+        <app-modal
+            tooltipType="remove_favorite"
+            icon="cross.svg"
+            header="Fjerne favoritter"
+            info="Visste du at du kan fjerne steder fra favoritter ved å swipe til venstre?"
+        ></app-modal>
     </div>
 </template>
 
@@ -12,18 +18,19 @@
 import SearchBar from '../components/SearchBar'
 
 import PlaceList from '../components/PlaceList'
-/* import Modal from '../components/Modal' */
+import Modal from '../components/Modal'
 
 export default {
     data() {
         return {
             query: '',
-            show: false
+            tooltipShown: this.$store.getters.getTooltipShown
         }
     },
     components: {
         'app-place-list': PlaceList,
-        'app-search-bar': SearchBar
+        'app-search-bar': SearchBar,
+        'app-modal': Modal
     },
     computed: {
         filteredPlaces() {

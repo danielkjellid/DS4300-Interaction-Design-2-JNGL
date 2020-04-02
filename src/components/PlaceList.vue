@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white rounded-lg shadow">
       <div v-for="place in places" :key="place.id">
-        <app-place-item :place="place"></app-place-item>
+        <app-place-item :btnText="btnText" :type="type" :place="place"></app-place-item>
       </div>
     </div>
 </template>
@@ -14,7 +14,9 @@ export default {
         places: {
             type: Array,
             required: true,
-        }
+        },
+        type: String,
+        btnText: String
     },
     components: {
         'app-place-item': PlaceItem
