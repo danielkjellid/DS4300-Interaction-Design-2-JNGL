@@ -14,7 +14,7 @@
               <div class="px-5 py-5 bg-white">
                   <div class="flex items-center">
                     <!-- get image from assets -->
-                    <img class="w-12 h-12 rounded-full" :src="require(`@/assets/images/${place.image}`)"/>
+                    <img class="w-12 h-12 rounded-full" :src="require(`@/assets/images/places/${place.image}`)"/>
                     <div class="ml-3">
                       <p class="text-base font-medium text-gray-800">{{ place.name }}</p>
                       <p class="text-sm font-normal text-gray-600">{{ place.address }}</p>
