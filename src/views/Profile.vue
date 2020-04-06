@@ -1,9 +1,13 @@
 <template>
   <div>
       <h1>Profile</h1>
-      <swipe class="my-swipe" :noDragWhenSingle="false" :speed="1000">
-        <swipe-item class="swippy"></swipe-item>
-      </swipe>
+      <v-touch @swiperight="doSomething" :swipe-options="{ threshold: 100 }">
+        <swipe class="my-swipe" :noDragWhenSingle="false" :speed="500">
+          <swipe-item class="swippy">FRA SISA</swipe-item>
+        </swipe>
+      </v-touch>
+        <p>I can now be swiped on!</p>
+      
   </div>
 </template>
 
@@ -13,6 +17,12 @@ export default {
   components: {
     'swipe': Swipe,
     'swipe-item': SwipeItem
+  },
+  methods: {
+    doSomething() {
+      console.log('swopen dat bish');
+      
+    }
   }
 }
 </script>
@@ -24,9 +34,12 @@ export default {
     padding: 30px;
     margin-top: 40px;
     background-color: black;
+    justify-content: center;
+    align-items: center;
   }
   .my-swipe{
     margin: 0 auto;
     text-align: center;
+    display: flex;
   }
 </style>
