@@ -3,7 +3,7 @@
     <!-- get image from assets -->
     
     <img
-      class="h-16 rounded"
+      class="w-24 h-16 rounded"
       :src="require(`@/assets/images/places/${place.image}`)"
     />
             <div class="ml-2">
@@ -31,10 +31,10 @@
                         :class="
                         index >=
                         (place.reviews.environment +
-                            place.reviews.menu +
+                            place.reviews.selection +
                             place.reviews.service +
                             place.reviews.value) /
-                            5
+                            4
                             ? 'text-gray-400'
                             : 'text-gray-800'
                         "

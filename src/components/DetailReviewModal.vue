@@ -40,11 +40,11 @@
             </div>
           </div>
           <div class="mt-5">
-            <label for="menu" class="text-sm font-medium text-gray-800">Hvor mange stjerner vil du gi på utvalg?</label>
+            <label for="selection" class="text-sm font-medium text-gray-800">Hvor mange stjerner vil du gi på utvalg?</label>
             <div class="flex items-center justify-between mt-2">
-              <input v-model="menuValue" id="menu" class="mr-4" type="range" min="0" max="5">
+              <input v-model="selectionValue" id="selection" class="mr-4" type="range" min="0" max="5">
               <div>
-                <span class="font-medium text-gray-800">{{ menuValue }}</span>
+                <span class="font-medium text-gray-800">{{ selectionValue }}</span>
                 <span class="font-medium text-gray-600">/5</span>
               </div>
             </div>
@@ -88,7 +88,7 @@ export default {
       reviewSlider: false,
       review: '',
       environmentValue: 0,
-      menuValue: 0,
+      selectionValue: 0,
       serviceValue: 0,
       totalValue: 0,
     }

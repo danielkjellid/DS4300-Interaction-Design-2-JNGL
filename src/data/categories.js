@@ -1,14 +1,14 @@
 export const categoryData = [
     {
         id: 1,
-        name: 'Mat'
+        name: 'Mat og drikke'
     },
     {
         id: 2,
-        name: 'Barer'
+        name: 'Shopping'
     },
     {
         id: 3,
-        name: 'Shopping'
+        name: 'Aktiviteter'
     },
 ]

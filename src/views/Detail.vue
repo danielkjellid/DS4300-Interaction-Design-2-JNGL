@@ -19,7 +19,7 @@
           </div>
       </div>
       <div v-else>
-          <p>Finner ikke sted.</p><router-link to="/"><a>Gå tilbake?</a></router-link>
+          <p>Finner ikke sted.</p><router-link to="/"><a>Gå tilbake til utforsk?</a></router-link>
       </div>
   </div>
 </template>
