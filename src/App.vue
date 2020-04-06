@@ -36,6 +36,8 @@ export default {
     this.$store.dispatch('initBoroughs')
     this.$store.dispatch('initCategories')
     this.$store.dispatch('initPlaces')
+    this.$store.dispatch('initUsers')
+    this.$store.dispatch('initReviews')
   }
 }
 </script>

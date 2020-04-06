@@ -4,6 +4,8 @@ import Vuex from 'vuex'
 import { boroughsData } from '../data/boroughs'
 import { categoryData } from '../data/categories'
 import { placeData } from '../data/places'
+import { userData } from '../data/users'
+import { reviewData } from '../data/reviews'
 
 Vue.use(Vuex)
 
@@ -12,6 +14,8 @@ export default new Vuex.Store({
     boroughs: [],
     categories: [],
     places: [],
+    users: [],
+    reviews: [],
     selectedBorough: [],
     favorites: [],
     tooltipShown: {
@@ -25,13 +29,21 @@ export default new Vuex.Store({
     'INIT_BOROUGHS' (state, boroughs) {
       state.boroughs = boroughs
     },
-    // mutation to initialize the categoriesData array, takes boroughs as an arg
+    // mutation to initialize the categoriesData array, takes categories as an arg
     'INIT_CATEGORIES' (state, categories) {
       state.categories = categories
     },
-    // mutation to initialize the placeData array, takes boroughs as an arg
+    // mutation to initialize the placeData array, takes places as an arg
     'INIT_PLACES' (state, places) {
       state.places = places
+    },
+    // mutation to initialize the userData array, takes users as an arg
+    'INIT_USERS' (state, users) {
+      state.users = users
+    },
+    // mutation to initialize the reviewData array, takes reviews as an arg
+    'INIT_REVIEWS' (state, reviews) {
+      state.reviews = reviews
     },
     // mutation to initialize the favoritesData array, takes boroughs as an arg
     'INIT_FAVORITES' (state, favorites) {
@@ -77,6 +89,12 @@ export default new Vuex.Store({
     },
     initPlaces: ({ commit }) => {
       commit('INIT_PLACES', placeData)
+    },
+    initUsers: ({ commit }) => {
+      commit('INIT_USERS', userData)
+    },
+    initReviews: ({ commit }) => {
+      commit('INIT_REVIEWS', reviewData)
     },
     addFavorite: ({ commit }, favorite) => {
       commit('ADD_FAVORITE', favorite)
