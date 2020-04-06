@@ -10,11 +10,7 @@
         </div>
       </div>
     </div>
-    <div class="px-5 py-5 m-auto">
-      <button class="w-full py-3 text-sm text-center text-gray-800 bg-gray-200 rounded hover:text-gray-900 hover:bg-gray-300">
-        Skriv en anmeldelse
-      </button>
-    </div>
+    <slot name="review-button"></slot>
   </div>
 </template>
 
