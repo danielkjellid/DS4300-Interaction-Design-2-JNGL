@@ -3,7 +3,7 @@
   <div>
       <div class="px-5 py-5 bg-white">
           <div class="flex items-center">
-            <img class="w-12 h-12 rounded-full" :src="require(`@/assets/images/places/${data.image}`)"/>
+            <img class="object-cover w-12 h-12 rounded-full" :src="require(`@/assets/images/places/${data.image}`)"/>
             <div class="ml-3">
               <p class="text-base font-medium text-gray-800">{{ data.name }}</p>
               <p class="text-sm font-normal text-gray-600">{{ data.address }}</p>

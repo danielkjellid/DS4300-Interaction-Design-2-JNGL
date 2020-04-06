@@ -185,8 +185,188 @@ export const placeData = [
     },
     // == Grünerløkka ==
     // - Mat og drikke
+    {
+        id: 10,
+        boroughId: 2,
+        name: 'SüdØst',
+        image: 'sudost.jpg',
+        address: 'Trondheimsveien 5, 0560 Oslo',
+        categoryId: 1,
+        website: 'https://sudost.no',
+        reviews: {
+            environment: 4,
+            selection: 4,
+            service: 5,
+            value: 5,
+            amountOfReviwes: 47
+        },
+        pricepoint: 'Middels',
+        bio: 'På SüdØst smeltes asiatiske og europeiske matkulturer sammen til konseptet Asian Crossover. På menyen er det stort utvalg av sushi og asiatiske småretter, samt en rekke grillretter og pasta.',
+        types: ['Fusion', 'Gourmet'],
+        tags: ['Romantisk', 'Business', 'Rullestolvennlig']
+    },
+    {
+        id: 11,
+        boroughId: 2,
+        name: 'Mathallen Oslo',
+        image: 'mathallen.jpg',
+        address: 'Vulkan 5, 0178 Oslo',
+        categoryId: 1,
+        website: 'https://mathallenoslo.no',
+        reviews: {
+            environment: 3,
+            selection: 5,
+            service: 4,
+            value: 4,
+            amountOfReviwes: 32
+        },
+        pricepoint: 'Middels',
+        bio: 'Mathallen på Vulkan er et foodie-paradis med mer enn 30 spesialbutikker, kafeer og spisesteder med mat og drikke av høy kvalitet. Her får du varer som du ikke finner andre steder i byen, og du treffer flinke fagfolk som gjerne gir gode råd og tips.',
+        types: ['Mathall'],
+        tags: ['Take-away', 'Business', 'Rullestolvennlig', 'Barnevennlig', 'Lunsj']
+    },
+    {
+        id: 12,
+        boroughId: 2,
+        name: 'Freddy Fuego',
+        image: 'freddy-fuego.jpg',
+        address: 'Hausmanns gate 31A, 0182 Oslo',
+        categoryId: 1,
+        website: 'https://freddyfuego.no',
+        reviews: {
+            environment: 3,
+            selection: 3,
+            service: 3,
+            value: 3,
+            amountOfReviwes: 86
+        },
+        pricepoint: 'Lavt',
+        bio: 'Nylagde burritos med ferskt fyll som du velger selv - på Freddy Fuego er det ingenting som fryses eller stekes. Her lages autentiske regionale salsaer hver dag, og kjøttet marineres i en hemmelig chiliblanding før det varmes langsomt for å bli ekstra mørt og velsmakende.',
+        types: ['Burito', 'Meksikansk'],
+        tags: ['Take-away', 'Rullestolvennlig', 'Barnevennlig', 'Lunsj']
+    },
     // - Shopping
+    {
+        id: 13,
+        boroughId: 2,
+        name: 'Sykkelpikene',
+        image: 'sykkelpikene.jpg',
+        address: 'Thorvald Meyers gate 54, 0552 Oslo',
+        categoryId: 2,
+        website: 'https://sykkelpikene.no',
+        reviews: {
+            environment: 5,
+            selection: 2,
+            service: 4,
+            value: 4,
+            amountOfReviwes: 63
+        },
+        pricepoint: 'Lavt',
+        bio: 'Sykler og tilbehør til folk i alle aldre som "sykler med stil"! Sykkelpikene på Grünerløkka har som ønske å gjøre dine sykkelturer bedre, og tilbyr både elsykler, bysykler, hjelmer, sykkelvesker og masse annet sykkelutstyr.',
+        types: ['Sykkel'],
+        tags: ['Rullestolvennlig', 'Barnevennlig', 'Sommer']
+    },
+    {
+        id: 14,
+        boroughId: 2,
+        name: 'Schous Bøker',
+        image: 'schous-boker.jpg',
+        address: 'Schous Plass 7A, 0552 Oslo',
+        categoryId: 2,
+        website: 'https://schousboker.no',
+        reviews: {
+            environment: 3,
+            selection: 2,
+            service: 5,
+            value: 4,
+            amountOfReviwes: 12
+        },
+        pricepoint: 'Lavt',
+        bio: 'Uavhengig bruktbokhandel på Grünerløkka som rommer utgivelser i nesten alle sjangere, med spesielt godt utvalg av moderne klassikere, barnebøker og tegneserier. Butikken har også gode lenestoler, hyggelig atmosfære og kaffe på trakteren!',
+        types: ['Bøker'],
+        tags: ['Rullestolvennlig', 'Barnevennlig']
+    },
+    {
+        id: 15,
+        boroughId: 2,
+        name: 'Robot',
+        image: 'robot.jpg',
+        address: 'Korsgata 22, 0551 Oslo',
+        categoryId: 2,
+        website: '#',
+        reviews: {
+            environment: 3,
+            selection: 2,
+            service: 5,
+            value: 2,
+            amountOfReviwes: 11
+        },
+        pricepoint: 'Lavt',
+        bio: 'Importerte vintage- og retroklær til en overkommelig pris. Robot tilbyr også personlige stylingtips.',
+        types: ['Klær'],
+        tags: ['Rullestolvennlig', 'Barnevennlig']
+    },
     // - Aktiviteter
+    {
+        id: 16,
+        boroughId: 2,
+        name: 'Ølakadamiet',
+        image: 'olakademiet.jpg',
+        address: 'Thorvald Meyers gate 71A, 0552 Oslo',
+        categoryId: 3,
+        website: 'https://ol-akademiet.no',
+        reviews: {
+            environment: 5,
+            selection: 4,
+            service: 5,
+            value: 5,
+            amountOfReviwes: 19
+        },
+        pricepoint: 'Middels',
+        bio: 'Norges ledende kurs- og aktivitetsleverandør på fagfeltet øl er et uavhengig selskap stiftet av og for ølinteresserte. Ølakademiets ansatte formidler ølkunnskap og ølkultur gjennom kursing, aktiviteter og turer, med vekt på kunnskap, engasjement, gjestfrihet og humor.',
+        types: ['Bar'],
+        tags: ['Romantisk', 'Uformelt']
+    },
+    {
+        id: 17,
+        boroughId: 2,
+        name: 'Mad Goats Paddling',
+        image: 'mad-goats-paddling.jpg',
+        address: 'Nordre gate 2, 0551 Oslo',
+        categoryId: 3,
+        website: 'https://madgoats.no',
+        reviews: {
+            environment: 5,
+            selection: 5,
+            service: 5,
+            value: 5,
+            amountOfReviwes: 63
+        },
+        pricepoint: 'Middels',
+        bio: 'Mad Goats tilbyr kajakk- og SUP(stand up-paddling)-turer på Akerselva og kurs på havet. Tilbudet retter seg både mot nybegynnere og deg med erfaring i kajakk og på SUP.',
+        types: ['Vannsport'],
+        tags: ['Romantisk', 'Uformelt']
+    },
+    {
+        id: 18,
+        boroughId: 2,
+        name: 'Vulkan Klatresenter',
+        image: 'vulkan-klatresenter.jpg',
+        address: 'Maridalsveien 17, 0175 Oslo',
+        categoryId: 3,
+        website: 'https://kolsaas.no',
+        reviews: {
+            environment: 3,
+            selection: 4,
+            service: 4,
+            value: 4,
+            amountOfReviwes: 38
+        },
+        pricepoint: 'Middels',
+        bio: 'Klatresenter med både klatrevegg og buldrevegger. Stedet drives av Kolsås klatreklubb, som også arrangerer klatrekurs og klatreturer rundt Oslo, til fjells og på bre.',
+        types: ['Klatring'],
+        tags: ['Uformelt']
+    },
     // == Oslofjorden ==
     // - Mat og drikke
     // - Shopping
