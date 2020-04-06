@@ -2,7 +2,7 @@ export const placeData = [
     {
         id: 1,
         boroughId: 3,
-        name: 'Frogner 1',
+        name: 'Tunco Haugen',
         image: 'smalhans.jpg',
         address: 'Bjerregaardsgate 2A, 0172 Oslo',
         categoryId: 1,
