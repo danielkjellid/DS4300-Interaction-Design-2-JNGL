@@ -1,7 +1,11 @@
 <template>
-   <router-link :to="{ name: 'PlaceDetail', params: { id: place.id }}" class="flex items-center px-5 py-5 border-b border-gray-300"> 
+
+    <v-touch @swipe="handleFavorite" :swipe-options="{ threshold: 100 }">
+      <swipe class="my-swipe" :noDragWhenSingle="false" :speed="500">
+        <swipe-item>
+   <!--  <router-link :to="{ name: 'PlaceDetail', params: { id: place.id }}" class="flex items-center px-5 py-5 border-b border-gray-300">  -->
     <!-- get image from assets -->
-    
+    <div class="flex items-center px-5 py-5 border-b border-gray-300 bg-white">
     <img
       class="h-16 rounded"
       :src="require(`@/assets/images/places/${place.image}`)"
@@ -50,12 +54,15 @@
                     <button @click="handleFavorite"> {{btnText}} </button>
                 </div>
             </div>
-        
-  </router-link>
+  <!-- </router-link> -->
+  </div>
+  </swipe-item>
+      </swipe>
+    </v-touch>
 </template>
 
 <script>
-
+import { Swipe, SwipeItem } from 'vue-swipe';
 export default {
   props: {
     place: {
@@ -72,11 +79,15 @@ export default {
          if(!this.$store.getters.getFavorites.find(e => e.id === this.place.id))
         this.$store.dispatch("addFavorite", this.place);
       else 
-        return alert("This place already exists")
+        return alert("Dette stedet ligger allerede under dine favoritter!")
       } else if(this.type === "remove_favorite"){
          this.$store.dispatch("removeFavorite", this.place.id);
       }
     }
+  },
+  components: {
+    'swipe': Swipe,
+    'swipe-item': SwipeItem 
   }
 }
 </script>
