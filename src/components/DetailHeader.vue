@@ -34,13 +34,13 @@
               </div>
               Nettside
           </a>
-          <button class="m-auto text-sm font-medium text-gray-900">
+          <button @click="handleFavorite" class="m-auto text-sm font-medium text-gray-900">
               <div class="flex items-center w-12 h-12 mb-2 border-2 border-gray-300 rounded-full">
                   <svg viewBox="0 0 24 24" class="w-6 h-6 m-auto text-gray-600" fill="currentColor">
-                      <path d="M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"/>
+                      <path v-bind:d="isFavorite() ? svgs.favorite : svgs.notFavorite" />
                   </svg>
               </div>
-              Favoritt
+              {{isFavorite() ? 'Favoritt' : 'Fjern favoritt'}}
           </button>
       </div>
   </div>
@@ -54,10 +54,35 @@ export default {
       return this.data.name.replace(/\s/g, '+')
     }
   },
+  data() {
+    return {
+      svgs: {
+        favorite: "M12.76 3.76a6 6 0 0 1 6.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z",
+        notFavorite: "M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"
+      }
+    }
+  },
   props: {
     data: {
       type: Object,
       required: true,
+    },
+    type: {
+      type: String,
+      default: 'set_favorite'
+    }
+  },
+  methods: {
+    // Adds a place to favorites array, or removes it based on the type
+    handleFavorite() {
+      if(!this.$store.getters.getFavorites.find(favorite => favorite.id === this.data.id)) {
+         this.$store.dispatch("addFavorite", this.data);
+      } else {
+         this.$store.dispatch("removeFavorite", this.data.id);
+      }
+    },
+    isFavorite() {
+      return !this.$store.getters.getFavorites.find(e => e.id === this.data.id);
     }
   },
 }

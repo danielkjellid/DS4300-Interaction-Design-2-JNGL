@@ -37,8 +37,7 @@ export default {
     methods: {
         onClick() {
             this.show = !this.show;
-            this.tooltipType && this.$store.dispatch("updateTooltipShown", this.tooltipType);       
-            
+            this.tooltipType && this.$store.dispatch("updateTooltipShown", this.tooltipType);
         }
     }
 }

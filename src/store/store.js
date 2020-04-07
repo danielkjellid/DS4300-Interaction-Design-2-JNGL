@@ -22,7 +22,7 @@ export default new Vuex.Store({
       addFavorite: false,
       removeFavorite: false
     },
-    modal: undefined
+    regret: undefined
   },
   mutations: {
     // mutation to initialize the boroughsData array, takes boroughs as an arg
@@ -59,8 +59,8 @@ export default new Vuex.Store({
     'SET_LOCATION' (state, location) {
       state.selectedBorough = location
     },
-    'SET_MODAL' (state, modal) {
-      state.modal = !state.modal ? {...modal} : undefined
+    'SET_REGRET' (state, place) {
+      state.regret = place
     },
     'UPDATE_TOOLTIP_SHOWN' (state, type) {
 
@@ -105,14 +105,13 @@ export default new Vuex.Store({
     updateTooltipShown: ({ commit }, type) => {
       commit('UPDATE_TOOLTIP_SHOWN', type)
     },
-
-    setModal: ({commit}, modal) => {
-      commit('SET_MODAL', modal)
-    },
     // action to select location, and update state
     selectLocation: ({ commit }, location) => {
       // commit SET_LOCATION mutation with location as arg
       commit('SET_LOCATION', location)
+    },
+    setRegret: ({ commit }, place) => {
+      commit('SET_REGRET', place)
     }
   },
   getters: {
@@ -135,6 +134,9 @@ export default new Vuex.Store({
       // return selectedBorough array
       return state.selectedBorough
     },
+    getRegret: state => {
+      return state.regret
+    },
     getTooltipShown: state => type => {
       switch (type) {
         case 'add_favorite':
@@ -146,9 +148,6 @@ export default new Vuex.Store({
         default:
           return false;
       } 
-    },
-    getModal: state => {
-      return state.modal
     }
   },
 })
