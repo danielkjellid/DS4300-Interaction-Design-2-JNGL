@@ -1,92 +1,56 @@
 export const boroughsData = [
     {
         id: 1,
-        name: 'Alna',
-        image: 'alna.jpg',
-        tagline: 'Furuset, Lindeberg og Teisen'
+        name: 'Bjørvika',
+        image: 'bjorvika.jpg',
+        tagline: 'Bydel langs fjordkanten'  
     },
     {
         id: 2,
-        name: 'Bjerke',
-        image: 'bjerke.jpg',
-        tagline: 'Linerud, Økern, Årvoll og Veitvet'
+        name: 'Grünerløkka',
+        image: 'grunerlokka.jpg',
+        tagline: 'Oslos tidligere arbeiderstrøk'
     },
     {
         id: 3,
-        name: 'Frogner',
-        image: 'frogner.jpg',
-        tagline: 'Bygdøy, Majorstua, Frogner og Vika'
+        name: 'Oslofjorden',
+        image: 'oslofjorden.jpg',
+        tagline: 'Strender og bading'
     },
     {
         id: 4,
-        name: 'Gamle Oslo',
-        image: 'gamle-oslo.jpg',
-        tagline: 'Gamlebyen, Vålerenga, Grønland'
+        name: 'Bygdøy',
+        image: 'bygdoy.jpg',
+        tagline: 'Turmuligheter og kjente museer'
     },
     {
         id: 5,
-        name: 'Grorud',
-        image: 'grorud.jpg',
-        tagline: 'Ammerud, Grorud og Romsås'
+        name: 'Aker Brygge',
+        image: 'aker-brygge.jpg',
+        tagline: 'Det gode liv på bryggekanten'
     },
     {
         id: 6,
-        name: 'Grünerløkka',
-        image: 'grunerlokka.jpg',
-        tagline: 'Grünerløkka, Sofienberg, Rodeløkka'
+        name: 'Oslo øst',
+        image: 'oslo-ost.jpg',
+        tagline: 'Livlige gater i gamle Oslo'
     },
     {
         id: 7,
-        name: 'Nordre Aker',
-        image: 'nordre-aker.jpg',
-        tagline: 'Nydalen, Grefsen, Kjelsås, Sogn'
+        name: 'Oslo vest',
+        image: 'oslo-vest.jpg',
+        tagline: 'Eksklusivt på Oslos vestkant'
     },
     {
         id: 8,
-        name: 'Nordstrand',
-        image: 'nordstrand.jpg',
-        tagline: 'Ekeberg og Nordstrand'
+        name: 'Oslo sentrum',
+        image: 'oslo-sentrum.jpg',
+        tagline: 'Kort vei mellom opplevelsene'
     },
     {
         id: 9,
-        name: 'Sagene',
-        image: 'sagene.jpg',
-        tagline: 'Iladalen, Bjølsen og Sandaker'
-    },
-    {
-        id: 10,
-        name: 'St. Hanshaugen',
-        image: 'sthanshaugen.jpg',
-        tagline: 'Louisenberg, Bolteløkka og Ila'
-    },
-    {
-        id: 11,
-        name: 'Stovner',
-        image: 'stovner.jpg',
-        tagline: 'Vestli, Rommen og Østmarka'
-    },
-    {
-        id: 12,
-        name: 'Søndre Nordstrand',
-        image: 'sondre-nordstrand.jpg',
-        tagline: 'Ljabru, Holmlia og Rosenholm'
-    },
-    {
-        id: 13,
-        name: 'Ullern',
-        image: 'ullern.jpg',
-        tagline: 'Lysaker, Skøyen og Smedstad'
-    },
-    {
-        id: 14,
-        name: 'Vestre Aker',
-        image: 'nordre-aker.jpg',
-        tagline: 'Sørkedalen og Holmenkollen'
-    },
-    {
-        id: 15,
-        name: 'Østensjø',
-        image: 'ostensjo.jpg',
-        tagline: 'Oppsal, Bøler og Manglerud'
+        name: 'Holmenkollen',
+        image: 'holmenkollen.jpg',
+        tagline: 'Friluftsliv og skisport'
     },
 ]

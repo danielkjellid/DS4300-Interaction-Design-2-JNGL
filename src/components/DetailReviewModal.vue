@@ -40,11 +40,11 @@
             </div>
           </div>
           <div class="mt-5">
-            <label for="menu" class="text-sm font-medium text-gray-800">Hvor mange stjerner vil du gi på utvalg?</label>
+            <label for="selection" class="text-sm font-medium text-gray-800">Hvor mange stjerner vil du gi på utvalg?</label>
             <div class="flex items-center justify-between mt-2">
-              <input v-model="menuValue" id="menu" class="mr-4" type="range" min="0" max="5">
+              <input v-model="selectionValue" id="selection" class="mr-4" type="range" min="0" max="5">
               <div>
-                <span class="font-medium text-gray-800">{{ menuValue }}</span>
+                <span class="font-medium text-gray-800">{{ selectionValue }}</span>
                 <span class="font-medium text-gray-600">/5</span>
               </div>
             </div>
@@ -71,7 +71,7 @@
           </div>
         </form>
         <div class="mt-5">
-          <button class="w-full py-3 text-sm text-center text-gray-800 bg-gray-200 rounded hover:text-gray-900 hover:bg-gray-300">
+          <button @click="submitReview(reviews)" class="w-full py-3 text-sm text-center text-gray-800 bg-gray-200 rounded hover:text-gray-900 hover:bg-gray-300">
             Publiser anmeldelse
           </button>
         </div>
@@ -88,7 +88,7 @@ export default {
       reviewSlider: false,
       review: '',
       environmentValue: 0,
-      menuValue: 0,
+      selectionValue: 0,
       serviceValue: 0,
       totalValue: 0,
     }
@@ -99,11 +99,28 @@ export default {
       required: true,
     }
   },
+  computed: {
+    reviews() {
+      return this.$store.getters.getReviews
+    },
+  },
   methods: {
     switchFormStep() {
       this.reviewText = !this.reviewText
       this.reviewSlider = !this.reviewSlider
-    }
+    },
+    submitReview() {
+      const review = {
+        id: this.reviews.length + 1,
+        userId: 3,
+        placeId: parseInt(this.$route.params.id),
+        review: this.review,
+        timeStamp: new Date()
+      }
+
+      this.$store.dispatch('addReview', review)
+      this.$emit('close')
+    },
   },
 }
 </script>

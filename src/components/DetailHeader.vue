@@ -1,16 +1,9 @@
 <template>
   <!-- header -->
   <div>
-      <div class="grid h-48 grid-cols-2 bg-white border-b border-gray-300">
-          <div class="bg-red-200 border-r border-white">Thumbnail</div>
-          <div>
-              <div class="h-24 bg-green-200 border-b border-white">Image 2</div>
-              <div class="h-24 bg-blue-200">Image 3</div>
-          </div>
-      </div>    
       <div class="px-5 py-5 bg-white">
           <div class="flex items-center">
-            <img class="w-12 h-12 rounded-full" :src="require(`@/assets/images/places/${data.image}`)"/>
+            <img class="object-cover w-12 h-12 rounded-full" :src="require(`@/assets/images/places/${data.image}`)"/>
             <div class="ml-3">
               <p class="text-base font-medium text-gray-800">{{ data.name }}</p>
               <p class="text-sm font-normal text-gray-600">{{ data.address }}</p>

@@ -78,6 +78,9 @@ export default new Vuex.Store({
       } 
       
     },
+    'ADD_REVIEW' (state, review) {
+      state.reviews = [...state.reviews, review]
+    }
   },
   actions: {
     // actions to initialize mutations with data
@@ -105,6 +108,9 @@ export default new Vuex.Store({
     updateTooltipShown: ({ commit }, type) => {
       commit('UPDATE_TOOLTIP_SHOWN', type)
     },
+    setModal: ({commit}, modal) => {
+      commit('SET_MODAL', modal)
+    },
     // action to select location, and update state
     selectLocation: ({ commit }, location) => {
       // commit SET_LOCATION mutation with location as arg
@@ -112,6 +118,8 @@ export default new Vuex.Store({
     },
     setRegret: ({ commit }, place) => {
       commit('SET_REGRET', place)
+    addReview: ({ commit }, review) => {
+      commit('ADD_REVIEW', review)
     }
   },
   getters: {
@@ -137,6 +145,9 @@ export default new Vuex.Store({
     getRegret: state => {
       return state.regret
     },
+    getUser: state => id => {
+      return state.users.find(user => user.id === id)
+    },
     getTooltipShown: state => type => {
       switch (type) {
         case 'add_favorite':
@@ -149,5 +160,15 @@ export default new Vuex.Store({
           return false;
       } 
     }
+    },
+    getModal: state => {
+      return state.modal
+    },
+    getReviews: state => {
+      return state.reviews
+    },
+    getPlaceReviews: state => id => {
+      return state.reviews.filter(review => review.placeId === id)
+    },
   },
 })
