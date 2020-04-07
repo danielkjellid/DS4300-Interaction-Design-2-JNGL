@@ -6,7 +6,7 @@
             <app-detail-meta :data="place"></app-detail-meta>
             <app-detail-info :data="place" class="mt-5"></app-detail-info>
             <app-detail-assesment :data="place" class="mt-5"></app-detail-assesment>
-            <app-reviews class="mt-5">
+            <app-reviews :reviews="getPlaceReviews" class="mt-5">
               <template v-slot:review-button>
                 <div class="px-5 py-5 m-auto">
                   <button @click="reviewActive = !reviewActive" class="w-full py-3 text-sm text-center text-gray-800 bg-gray-200 rounded hover:text-gray-900 hover:bg-gray-300">
@@ -41,6 +41,9 @@ export default {
   computed: {
       place() {
           return this.$store.getters.getPlace(parseInt(this.$route.params.id))
+      },
+      getPlaceReviews() {
+        return this.$store.getters.getPlaceReviews(parseInt(this.$route.params.id))
       }
   },
   components: {
