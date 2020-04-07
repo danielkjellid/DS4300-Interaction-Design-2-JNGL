@@ -158,7 +158,7 @@ export default new Vuex.Store({
     getModal: state => {
       return state.modal
     },
-    getAllReviews: state => {
+    getReviews: state => {
       return state.reviews
     },
     getPlaceReviews: state => id => {

@@ -5,7 +5,7 @@
         <swipe-item>
    <!--  <router-link :to="{ name: 'PlaceDetail', params: { id: place.id }}" class="flex items-center px-5 py-5 border-b border-gray-300">  -->
     <!-- get image from assets -->
-    <div class="flex items-center px-5 py-5 border-b border-gray-300 bg-white">
+    <div class="flex items-center px-5 py-5 bg-white border-b border-gray-300">
     <img
       class="w-24 h-16 rounded"
       :src="require(`@/assets/images/places/${place.image}`)"
@@ -29,7 +29,7 @@
                     <!-- loop and conditional check to add color to each star based on the place's reviews -->
                     <svg
                         v-for="(star, index) in 5"
-                        :key="star"
+                        :key="index"
                         class="w-4 h-4"
                         fill="currentColor"
                         :class="

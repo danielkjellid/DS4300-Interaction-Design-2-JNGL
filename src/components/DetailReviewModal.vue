@@ -71,7 +71,7 @@
           </div>
         </form>
         <div class="mt-5">
-          <button class="w-full py-3 text-sm text-center text-gray-800 bg-gray-200 rounded hover:text-gray-900 hover:bg-gray-300">
+          <button @click="submitReview(reviews)" class="w-full py-3 text-sm text-center text-gray-800 bg-gray-200 rounded hover:text-gray-900 hover:bg-gray-300">
             Publiser anmeldelse
           </button>
         </div>
@@ -99,11 +99,28 @@ export default {
       required: true,
     }
   },
+  computed: {
+    reviews() {
+      return this.$store.getters.getReviews
+    },
+  },
   methods: {
     switchFormStep() {
       this.reviewText = !this.reviewText
       this.reviewSlider = !this.reviewSlider
-    }
+    },
+    submitReview() {
+      const review = {
+        id: this.reviews.length + 1,
+        userId: 3,
+        placeId: parseInt(this.$route.params.id),
+        review: this.review,
+        timeStamp: new Date()
+      }
+
+      this.$store.dispatch('addReview', review)
+      this.$emit('close')
+    },
   },
 }
 </script>
