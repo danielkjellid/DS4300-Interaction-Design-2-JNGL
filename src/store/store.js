@@ -118,6 +118,7 @@ export default new Vuex.Store({
     },
     setRegret: ({ commit }, place) => {
       commit('SET_REGRET', place)
+    },
     addReview: ({ commit }, review) => {
       commit('ADD_REVIEW', review)
     }
@@ -159,7 +160,6 @@ export default new Vuex.Store({
         default:
           return false;
       } 
-    }
     },
     getModal: state => {
       return state.modal
@@ -169,6 +169,6 @@ export default new Vuex.Store({
     },
     getPlaceReviews: state => id => {
       return state.reviews.filter(review => review.placeId === id)
-    },
-  },
+    }
+  }
 })
