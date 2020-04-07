@@ -1,12 +1,12 @@
 <template>
   <div>
       <div v-if="place">
-          <app-detail-header :data="place"></app-detail-header>
+          <app-place-header :data="place"></app-place-header>
           <div class="px-5 py-5">
-            <app-detail-meta :data="place"></app-detail-meta>
-            <app-detail-info :data="place" class="mt-5"></app-detail-info>
-            <app-detail-assesment :data="place" class="mt-5"></app-detail-assesment>
-            <app-reviews :reviews="getPlaceReviews" class="mt-5">
+            <app-place-meta :data="place"></app-place-meta>
+            <app-place-info :data="place" class="mt-5"></app-place-info>
+            <app-place-assesment :data="place" class="mt-5"></app-place-assesment>
+            <app-place-reviews :reviews="getPlaceReviews" class="mt-5">
               <template v-slot:review-button>
                 <div class="px-5 py-5 m-auto">
                   <button @click="reviewActive = !reviewActive" class="w-full py-3 text-sm text-center text-gray-800 bg-gray-200 rounded hover:text-gray-900 hover:bg-gray-300">
@@ -14,11 +14,11 @@
                   </button>
                 </div>
               </template>
-            </app-reviews>
-            <app-detail-review-modal 
+            </app-place-reviews>
+            <app-place-review-modal 
               :reviewActive="reviewActive"
               @close="reviewActive = !reviewActive">
-            </app-detail-review-modal>
+            </app-place-review-modal>
           </div>
       </div>
       <div v-else>
@@ -33,12 +33,12 @@
 </template>
 
 <script>
-import DetailHeader from '../components/DetailHeader'
-import DetailMeta from '../components/DetailMeta'
-import DetailInfo from '../components/DetailInfo'
-import DetailAssesment from '../components/DetailAssesment'
-import Reviews from '../components/Reviews'
-import DetailReviewModal from '../components/DetailReviewModal'
+import PlaceHeader from '../components/PlaceHeader'
+import PlaceMeta from '../components/PlaceMeta'
+import PlaceInfo from '../components/PlaceInfo'
+import PlaceAssesment from '../components/PlaceAssesment'
+import PlaceReviews from '../components/PlaceReviews'
+import PlaceReviewModal from '../components/PlaceReviewModal'
 
 export default {
   data() {
@@ -55,12 +55,12 @@ export default {
       }
   },
   components: {
-    'app-detail-header': DetailHeader,
-    'app-detail-meta': DetailMeta,
-    'app-detail-info': DetailInfo,
-    'app-detail-assesment': DetailAssesment,
-    'app-reviews': Reviews,
-    'app-detail-review-modal': DetailReviewModal,
+    'app-place-header': PlaceHeader,
+    'app-place-meta': PlaceMeta,
+    'app-place-info': PlaceInfo,
+    'app-place-assesment': PlaceAssesment,
+    'app-place-reviews': PlaceReviews,
+    'app-place-review-modal': PlaceReviewModal,
   }
 }
 </script>

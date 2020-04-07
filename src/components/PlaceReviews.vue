@@ -2,15 +2,17 @@
   <div class="bg-white rounded shadow">
     <div v-if="reviews.length > 0">
       <div v-for="review in reviews" :key="review.id" class="px-5 py-5 border-b border-gray-300">
-        <div class="flex">
-          <img class="inline-block w-12 h-12 rounded-full" :src="require(`@/assets/images/users/${getReviewUser(review.userId).image}`)" />
-          <div class="ml-3">
-            <p class="text-sm font-medium text-gray-800">{{ getReviewUser(review.userId).name }}</p>
-            <p class="mt-1 mb-1 text-sm text-gray-600">{{ review.review }}</p>
-            <span v-if="formatDate(review.timeStamp) != 0" class="text-xs text-gray-600">{{ formatDate(review.timeStamp) }} dager siden</span>
-            <span v-else class="text-xs text-gray-600">I dag</span>
+        <router-link :to="{ name: 'Profile', params: { id: review.userId }}">
+          <div class="flex">
+            <img class="inline-block w-12 h-12 rounded-full" :src="require(`@/assets/images/users/${getReviewUser(review.userId).image}`)" />
+            <div class="ml-3">
+              <p class="text-sm font-medium text-gray-800">{{ getReviewUser(review.userId).name }}</p>
+              <p class="mt-1 mb-1 text-sm text-gray-600">{{ review.review }}</p>
+              <span v-if="formatDate(review.timeStamp) != 0" class="text-xs text-gray-600">{{ formatDate(review.timeStamp) }} dager siden</span>
+              <span v-else class="text-xs text-gray-600">I dag</span>
+            </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
     <div v-else class="px-5 pt-5">

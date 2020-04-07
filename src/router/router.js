@@ -6,7 +6,7 @@ import List from '../views/List'
 import Position from '../views/Position'
 import Favorites from '../views/Favorites'
 import Profile from '../views/Profile'
-import Detail from '../views/Detail'
+import Place from '../views/Place'
 
 Vue.use(VueRouter)
 
@@ -33,14 +33,14 @@ const routes = [
     component: Favorites
   },
   {
-    path: '/profile',
+    path: '/profile/:id',
     name: 'Profile',
     component: Profile
   },
   {
     path: '/place/:id',
-    name: 'PlaceDetail',
-    component: Detail
+    name: 'Place',
+    component: Place
   }
 ]
 

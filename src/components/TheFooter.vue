@@ -72,7 +72,7 @@
         <a>Favoritter</a>
       </router-link>
       <router-link
-        to="/profile"
+        to="/profile/3"
         class="block text-sm font-medium text-gray-600 hover:text-gray-800"
         active-class="text-gray-800"
       >

@@ -11,12 +11,14 @@
             <div class="content">
               <!-- content -->
               <router-view></router-view>
+                <!--
                 <app-modal
                   tooltipType="add_favorite"
                   icon="lightbulb.svg"
                   header="Ballefrans"
                   info="Visste du at du kan markere steder som favoritter ved å swipe til høyre?"
                 ></app-modal>
+                -->
               <!-- content end -->
             </div>
             <!-- router links navigation -->
@@ -32,13 +34,13 @@
 <script>
 import Footer from './components/TheFooter'
 import Header from './components/TheHeader'
-import Modal from './components/Modal'
+//import Modal from './components/Modal'
 
 export default {
   components: {
     'app-header': Header,
     'app-footer': Footer,
-    'app-modal': Modal
+    //'app-modal': Modal
   },
   created() {
     this.$store.dispatch('initBoroughs')

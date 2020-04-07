@@ -168,5 +168,8 @@ export default new Vuex.Store({
     getPlaceReviews: (state) => (id) => {
       return state.reviews.filter((review) => review.placeId === id);
     },
+    getUserReviews: (state) => (id) => {
+      return state.reviews.filter((review) => review.userId === id)
+    },
   },
 });

@@ -3,7 +3,7 @@
     <v-touch @swipe="handleFavorite" :swipe-options="{ threshold: 100 }" class="swipe">
       
       <swipe class="my-swipe" :noDragWhenSingle="false" :speed="500">
-        <!-- <div class="heart w-24 bg-green-400 absolute "></div> -->
+        <!-- <div class="absolute w-24 bg-green-400 heart "></div> -->
         <swipe-item>
           <!-- <router-link :to="{ name: 'PlaceDetail', params: { id: place.id }}" class="flex items-center px-5 py-5 border-b border-gray-300">   -->
     <!-- get image from assets -->
@@ -12,9 +12,9 @@
                 <path v-bind:d="isFavorite() ? svgs.favorite : svgs.notFavorite" />
             </svg>
           </button>     
-          <router-link :to="{ name: 'PlaceDetail', params: { id: place.id }}" class="">
+          <router-link :to="{ name: 'Place', params: { id: place.id }}" class="">
             <!-- <button @click="handleFavorite"> {{btnText}} </button> -->
-            <div class="flex items-center px-5 py-5 border-b border-gray-300 bg-white">
+            <div class="flex items-center px-5 py-5 bg-white border-b border-gray-300">
     <img
       class="w-24 h-16 rounded"
       :src="require(`@/assets/images/places/${place.image}`)"

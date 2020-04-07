@@ -1,45 +1,55 @@
 <template>
   <div>
-      <h1>Profile</h1>
-      <v-touch @swiperight="doSomething" :swipe-options="{ threshold: 100 }">
-        <swipe class="my-swipe" :noDragWhenSingle="false" :speed="500">
-          <swipe-item class="swippy">FRA SISA</swipe-item>
-        </swipe>
-      </v-touch>
-        <p>I can now be swiped on!</p>
-      
+    <div v-if="user">
+      <div v-if="user.id === 3">
+        <!-- your user data -->
+        <app-profile-header :user="user" :myAccount="true"></app-profile-header>
+        <div class="px-5 py-5">
+          <app-profile-meta :user="user"></app-profile-meta>
+          <app-profile-bio class="mt-5" :bio="user.bio" :myAccount="true"></app-profile-bio>
+          <app-profile-reviews class="mt-5" :reviews="reviewsByUser" :myAccount="true"></app-profile-reviews>
+        </div>
+      </div>
+      <div v-else>
+        <!-- normal user data -->
+        <app-profile-header :user="user" :myAccount="false"></app-profile-header>
+        <div class="px-5 py-5">
+          <app-profile-meta :user="user"></app-profile-meta>
+          <app-profile-bio class="mt-5" :bio="user.bio" :myAccount="false"></app-profile-bio>
+          <app-profile-reviews class="mt-5" :reviews="reviewsByUser" :myAccount="true"></app-profile-reviews>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      <!-- user not found -->
+      <app-404></app-404>
+    </div>
+  
   </div>
 </template>
 
 <script>
-import { Swipe, SwipeItem } from 'vue-swipe';
+import ProfileHeader from '../components/ProfileHeader'
+import ProfileMeta from '../components/ProfileMeta'
+import ProfileBio from '../components/ProfileBio'
+import ProfileReviews from '../components/ProfileReviews'
+import NotFound from '../components/404'
+
 export default {
-  components: {
-    'swipe': Swipe,
-    'swipe-item': SwipeItem
-  },
-  methods: {
-    doSomething() {
-      console.log('swopen dat bish');
-      
+  computed: {
+    user() {
+      return this.$store.getters.getUser(parseInt(this.$route.params.id))
+    },
+    reviewsByUser() {
+      return this.$store.getters.getUserReviews(parseInt(this.$route.params.id))
     }
-  }
+  },
+  components: {
+    'app-profile-header': ProfileHeader,
+    'app-profile-meta': ProfileMeta,
+    'app-profile-bio': ProfileBio,
+    'app-profile-reviews': ProfileReviews,
+    'app-404': NotFound
+  },
 }
 </script>
-
-<style scoped>
-  .swippy {
-    width: 50px;
-    height: 20px;
-    padding: 30px;
-    margin-top: 40px;
-    background-color: black;
-    justify-content: center;
-    align-items: center;
-  }
-  .my-swipe{
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-  }
-</style>
