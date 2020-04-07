@@ -58,7 +58,7 @@
                     </svg>
                     </div>
                 </div>
- 
+              </div>
             </div>
           </router-link>
         </swipe-item>

@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-import { boroughsData } from '../data/boroughs'
-import { categoryData } from '../data/categories'
-import { placeData } from '../data/places'
-import { userData } from '../data/users'
-import { reviewData } from '../data/reviews'
+import { boroughsData } from "../data/boroughs";
+import { categoryData } from "../data/categories";
+import { placeData } from "../data/places";
+import { userData } from "../data/users";
+import { reviewData } from "../data/reviews";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
@@ -20,155 +20,153 @@ export default new Vuex.Store({
     favorites: [],
     tooltipShown: {
       addFavorite: false,
-      removeFavorite: false
+      removeFavorite: false,
     },
-    regret: undefined
+    regret: undefined,
   },
   mutations: {
     // mutation to initialize the boroughsData array, takes boroughs as an arg
-    'INIT_BOROUGHS' (state, boroughs) {
-      state.boroughs = boroughs
+    INIT_BOROUGHS(state, boroughs) {
+      state.boroughs = boroughs;
     },
     // mutation to initialize the categoriesData array, takes categories as an arg
-    'INIT_CATEGORIES' (state, categories) {
-      state.categories = categories
+    INIT_CATEGORIES(state, categories) {
+      state.categories = categories;
     },
     // mutation to initialize the placeData array, takes places as an arg
-    'INIT_PLACES' (state, places) {
-      state.places = places
+    INIT_PLACES(state, places) {
+      state.places = places;
     },
     // mutation to initialize the userData array, takes users as an arg
-    'INIT_USERS' (state, users) {
-      state.users = users
+    INIT_USERS(state, users) {
+      state.users = users;
     },
     // mutation to initialize the reviewData array, takes reviews as an arg
-    'INIT_REVIEWS' (state, reviews) {
-      state.reviews = reviews
+    INIT_REVIEWS(state, reviews) {
+      state.reviews = reviews;
     },
     // mutation to initialize the favoritesData array, takes boroughs as an arg
-    'INIT_FAVORITES' (state, favorites) {
-      state.favorites = favorites
+    INIT_FAVORITES(state, favorites) {
+      state.favorites = favorites;
     },
-    'ADD_FAVORITE' (state, favorite) {
-      state.favorites = [ ...state.favorites, favorite ]
+    ADD_FAVORITE(state, favorite) {
+      state.favorites = [...state.favorites, favorite];
     },
-    'REMOVE_FAVORITE' (state, id) {
-      state.favorites = state.favorites.filter(f => f.id !== id)
+    REMOVE_FAVORITE(state, id) {
+      state.favorites = state.favorites.filter((f) => f.id !== id);
     },
     // mutation to add location to the selectedBorough array, takes location as an arg
-    'SET_LOCATION' (state, location) {
-      state.selectedBorough = location
+    SET_LOCATION(state, location) {
+      state.selectedBorough = location;
     },
-    'SET_REGRET' (state, place) {
-      state.regret = place
+    SET_REGRET(state, place) {
+      state.regret = place;
     },
-    'UPDATE_TOOLTIP_SHOWN' (state, type) {
-
+    UPDATE_TOOLTIP_SHOWN(state, type) {
       switch (type) {
-        case 'add_favorite':
-          state.tooltipShown = { ...state.tooltipShown, addFavorite: true }
+        case "add_favorite":
+          state.tooltipShown = { ...state.tooltipShown, addFavorite: true };
           break;
-          
-        case 'remove_favorite':
-          state.tooltipShown = { ...state.tooltipShown, removeFavorite: true }
+
+        case "remove_favorite":
+          state.tooltipShown = { ...state.tooltipShown, removeFavorite: true };
           break;
 
         default:
           break;
-      } 
-      
+      }
     },
-    'ADD_REVIEW' (state, review) {
-      state.reviews = [...state.reviews, review]
-    }
+    ADD_REVIEW(state, review) {
+      state.reviews = [...state.reviews, review];
+    },
   },
   actions: {
     // actions to initialize mutations with data
     initBoroughs: ({ commit }) => {
-      commit('INIT_BOROUGHS', boroughsData)
+      commit("INIT_BOROUGHS", boroughsData);
     },
     initCategories: ({ commit }) => {
-      commit('INIT_CATEGORIES', categoryData)
+      commit("INIT_CATEGORIES", categoryData);
     },
     initPlaces: ({ commit }) => {
-      commit('INIT_PLACES', placeData)
+      commit("INIT_PLACES", placeData);
     },
     initUsers: ({ commit }) => {
-      commit('INIT_USERS', userData)
+      commit("INIT_USERS", userData);
     },
     initReviews: ({ commit }) => {
-      commit('INIT_REVIEWS', reviewData)
+      commit("INIT_REVIEWS", reviewData);
     },
     addFavorite: ({ commit }, favorite) => {
-      commit('ADD_FAVORITE', favorite)
+      commit("ADD_FAVORITE", favorite);
     },
     removeFavorite: ({ commit }, id) => {
-      commit('REMOVE_FAVORITE', id)
+      commit("REMOVE_FAVORITE", id);
     },
     updateTooltipShown: ({ commit }, type) => {
-      commit('UPDATE_TOOLTIP_SHOWN', type)
+      commit("UPDATE_TOOLTIP_SHOWN", type);
     },
-    setModal: ({commit}, modal) => {
-      commit('SET_MODAL', modal)
+    setModal: ({ commit }, modal) => {
+      commit("SET_MODAL", modal);
     },
     // action to select location, and update state
     selectLocation: ({ commit }, location) => {
       // commit SET_LOCATION mutation with location as arg
-      commit('SET_LOCATION', location)
+      commit("SET_LOCATION", location);
     },
     setRegret: ({ commit }, place) => {
-      commit('SET_REGRET', place)
+      commit("SET_REGRET", place);
     },
     addReview: ({ commit }, review) => {
-      commit('ADD_REVIEW', review)
-    }
+      commit("ADD_REVIEW", review);
+    },
   },
   getters: {
-    getBoroughs: state => {
-      return state.boroughs
+    getBoroughs: (state) => {
+      return state.boroughs;
     },
-    getCategories: state => {
-      return state.categories
+    getCategories: (state) => {
+      return state.categories;
     },
-    getPlaces: state => {
-      return state.places
+    getPlaces: (state) => {
+      return state.places;
     },
-    getFavorites: state => {
-      return state.favorites
+    getFavorites: (state) => {
+      return state.favorites;
     },
-    getPlace: state => id => {
-      return state.places.find(place => place.id === id)
+    getPlace: (state) => (id) => {
+      return state.places.find((place) => place.id === id);
     },
-    getLocation: state => {
+    getLocation: (state) => {
       // return selectedBorough array
-      return state.selectedBorough
+      return state.selectedBorough;
     },
-    getRegret: state => {
-      return state.regret
+    getRegret: (state) => {
+      return state.regret;
     },
-    getUser: state => id => {
-      return state.users.find(user => user.id === id)
+    getUser: (state) => (id) => {
+      return state.users.find((user) => user.id === id);
     },
-    getTooltipShown: state => type => {
+    getTooltipShown: (state) => (type) => {
       switch (type) {
-        case 'add_favorite':
-          return state.tooltipShown.addFavorite
-          
-        case 'remove_favorite':
-          return state.tooltipShown.removeFavorite
-          
+        case "add_favorite":
+          return state.tooltipShown.addFavorite;
+
+        case "remove_favorite":
+          return state.tooltipShown.removeFavorite;
+
         default:
           return false;
-      } 
+      }
     },
-    getModal: state => {
-      return state.modal
+    getModal: (state) => {
+      return state.modal;
     },
-    getReviews: state => {
-      return state.reviews
+    getReviews: (state) => {
+      return state.reviews;
     },
-    getPlaceReviews: state => id => {
-      return state.reviews.filter(review => review.placeId === id)
-    }
-  }
-})
+    getPlaceReviews: (state) => (id) => {
+      return state.reviews.filter((review) => review.placeId === id);
+    },
+  },
+});
