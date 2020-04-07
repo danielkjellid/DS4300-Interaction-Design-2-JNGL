@@ -8,7 +8,7 @@
       tooltipType="add_favorite"
       icon="lightbulb.svg"
       header="Merk sted som favoritter"
-      info="Visste du at du kan markere steder som favoritter ved å swipe til høyre?"
+      info="Visste du at du kan markere steder som favoritter ved å trykke på hjerte ikonet?"
     ></app-modal>
 
   </div>
