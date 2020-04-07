@@ -7,7 +7,8 @@
           <div class="ml-3">
             <p class="text-sm font-medium text-gray-800">{{ getReviewUser(review.userId).name }}</p>
             <p class="mt-1 mb-1 text-sm text-gray-600">{{ review.review }}</p>
-            <span class="text-xs text-gray-600">4 dager siden &#8226;</span> <a href="" class="text-xs text-gray-600">Svar</a>
+            <span v-if="formatDate(review.timeStamp) != 0" class="text-xs text-gray-600">{{ formatDate(review.timeStamp) }} dager siden</span>
+            <span v-else class="text-xs text-gray-600">I dag</span>
           </div>
         </div>
       </div>
@@ -33,7 +34,11 @@ export default {
   methods: {
     getReviewUser(reviewUserId) {
       return this.$store.getters.getUser(reviewUserId)
+    },
+    formatDate(date) {
+      const today = new Date()
+      return Math.round((today-date)/(1000*60*60*24))
     }
-  }
+  },
 }
 </script>
