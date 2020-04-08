@@ -54,9 +54,11 @@ export default {
     }
   },
   computed: {
+    // filter places based on selected location
     filteredPlaces() {
       return this.places.filter(place => place.boroughId === this.location.boroughId)
     },
+    // filter categories based on filteredPlaces to remove unused categories
     filteredCategories() {
       return this.categories.filter(category => this.filteredPlaces.find(place => category.id === place.categoryId))
     }
