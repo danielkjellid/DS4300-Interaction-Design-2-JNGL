@@ -18,7 +18,7 @@
             </svg>
           </div>
           <!-- helper text showing recent removal and option to regret -->
-          <p class="ml-2 text">Du har nylig fjernet {{this.$store.getters.getRegret && this.$store.getters.getRegret.name}} fra favoritter. <button @click="handleRegret(true)" class="font-bold btnText bor">Angre?</button></p> 
+          <p class="m-2 text">Du har nylig fjernet {{this.$store.getters.getRegret && this.$store.getters.getRegret.name}} fra favoritter. <button @click="handleRegret(true)" class="font-bold btnText bor">Angre?</button></p> 
         </div>
         <!-- button to remove the pane -->
         <button @click="handleRegret(false)" class="absolute top-0 right-0 m-3">
