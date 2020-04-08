@@ -23,7 +23,7 @@
               <span v-if="index != place.types.length - 1">&#8226;</span>
             </span>
           </div>
-          <div class="flex items-center">
+          <div class="flex items-center mt-1">
             <div class="flex items-center">
               <!-- review stars, dynamically 'coloring' based on the place's assesment -->              
               <svg v-for="(star, index) in 5" :key="index" class="w-4 h-4" fill="currentColor" 

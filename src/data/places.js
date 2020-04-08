@@ -622,7 +622,7 @@ export const placeData = [
     {
         id: 31,
         boroughId: 5,
-        name: 'Bølgen & Moi Tjuvholmen',
+        name: 'Bølgen & Moi',
         image: 'bølgen-moi.jpg',
         address: 'Tjuvholmen allé 5, 0252 Oslo',
         categoryId: 1,
@@ -683,7 +683,7 @@ export const placeData = [
     {
         id: 34,
         boroughId: 5,
-        name: 'Fiskebutikken på Tjuvholmen Sjømagasin',
+        name: 'Fiskebutikken',
         image: 'fiskebutikken.jpg',
         address: 'Tjuvholmen allé 14, 0252 Oslo',
         categoryId: 2,
@@ -744,7 +744,7 @@ export const placeData = [
     {
         id: 37,
         boroughId: 5,
-        name: 'Astrup Fearnley Museet',
+        name: 'Astrup Fearnley Mus.',
         image: 'astrup-fearnley.jpg',
         address: 'Strandpromenaden 2, 0252 Oslo',
         categoryId: 3,

@@ -13,7 +13,7 @@
     </div>
     <div class="grid grid-cols-3 px-5 py-5 bg-gray-100 shadow">
       <!-- anchor / button linking to the place on google maps -->
-      <a :href="`https://www.google.com/maps/search/?api=1&query=${nameToQuery}`" class="block m-auto text-sm font-medium text-center text-gray-900">
+      <a target="_blank" :href="`https://www.google.com/maps/search/?api=1&query=${nameToQuery}`" class="block m-auto text-sm font-medium text-center text-gray-900">
         <div class="flex items-center w-12 h-12 mb-2 border-2 border-gray-300 rounded-full">
           <svg viewBox="0 0 24 24" class="w-6 h-6 m-auto text-gray-600" fill="currentColor">
             <path d="M14 5.62l-4 2v10.76l4-2V5.62zm2 0v10.76l4 2V7.62l-4-2zm-8 2l-4-2v10.76l4 2V7.62zm7 10.5L9.45 20.9a1 1 0 0 1-.9 0l-6-3A1 1 0 0 1 2 17V4a1 1 0 0 1 1.45-.9L9 5.89l5.55-2.77a1 1 0 0 1 .9 0l6 3A1 1 0 0 1 22 7v13a1 1 0 0 1-1.45.89L15 18.12z" />
@@ -22,7 +22,7 @@
         <span>Kart</span>
       </a>
       <!-- anchor / button linking to the place's website -->
-      <a :href="data.website" class="block m-auto text-sm font-medium text-center text-gray-900">
+      <a target="_blank" :href="data.website" class="block m-auto text-sm font-medium text-center text-gray-900">
         <div class="flex items-center w-12 h-12 mb-2 border-2 border-gray-300 rounded-full">
           <svg viewBox="0 0 24 24" class="w-6 h-6 m-auto text-gray-600" fill="currentColor">
             <path d="M4.06 13a8 8 0 0 0 5.18 6.51A18.5 18.5 0 0 1 8.02 13H4.06zm0-2h3.96a18.5 18.5 0 0 1 1.22-6.51A8 8 0 0 0 4.06 11zm15.88 0a8 8 0 0 0-5.18-6.51A18.5 18.5 0 0 1 15.98 11h3.96zm0 2h-3.96a18.5 18.5 0 0 1-1.22 6.51A8 8 0 0 0 19.94 13zm-9.92 0c.16 3.95 1.23 7 1.98 7s1.82-3.05 1.98-7h-3.96zm0-2h3.96c-.16-3.95-1.23-7-1.98-7s-1.82 3.05-1.98 7zM12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20z" />

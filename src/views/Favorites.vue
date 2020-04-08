@@ -67,7 +67,7 @@ export default {
     }
   },
   computed: {
-    // method to display places after searcg
+    // method to display places after search
     filteredPlaces() {
       // takes favorites from store and filters based on name
       return this.$store.getters.getFavorites.filter(el => {
