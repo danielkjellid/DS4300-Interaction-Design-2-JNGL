@@ -17,24 +17,33 @@
           <span>Bruk min nåværende posisjon</span>
         </button>
       </div>
-      <!-- display a reduced (3 item) list of all boroughs which is searchable -->
-      <app-position-borough-item v-show="filterActive" v-for="borough in filteredBoroughs.slice(0, 3)" :key="borough.id" :borough="borough"></app-position-borough-item>
+      <!-- check if filteredBoroughs array has content -->
+      <div v-if="filteredBoroughs.length > 0">
+        <!-- display a reduced (3 item) list of all boroughs which is searchable -->
+        <app-position-borough-item v-show="filterActive" v-for="borough in filteredBoroughs.slice(0, 3)" :key="borough.id" :borough="borough"></app-position-borough-item>
+      </div>
+      <!-- if not, show error message -->
+      <div v-else class="px-5 py-5">
+        <app-core-no-data :text="'Vi fant dessverre ikke noe på ' + query + '. Pass på stavemåte.'"></app-core-no-data>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 // CORE IMPORTS
-import CoreSearchBar from "./CoreSearchBar";
+import CoreSearchBar from './CoreSearchBar'
+import CoreNoData from './CoreNoData'
 
 // MODULE IMPORTS
-import PositionBoroughItem from "./PositionBoroughItem";
+import PositionBoroughItem from './PositionBoroughItem'
 
 export default {
   name: 'PositionBoroughListSearchModal',
   components: {
-    "app-core-search-bar": CoreSearchBar,
-    "app-position-borough-item": PositionBoroughItem
+    'app-core-search-bar': CoreSearchBar,
+    'app-core-no-data': CoreNoData,
+    'app-position-borough-item': PositionBoroughItem
   },
   props: {
     searchActive: {
