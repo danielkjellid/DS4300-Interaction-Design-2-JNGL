@@ -426,7 +426,7 @@ export const placeData = [
         },
         pricepoint: 'Middels',
         bio: 'À la carte-restaurant på Hovedøya i Oslofjorden, åpen fra påske til oktober. Menyen varierer med årstidene, men blant gjengangere er fiskesuppe, blåskjell, hamburgere, skalldyrtallerken, biff og  dagens husmannskost. I tillegg serveres småretter, smørbrød og salater.',
-        types: ['Sjømat', 'Husmannskost', 'Grill'],
+        types: ['Sjømat', 'Grill'],
         tags: ['Uformelt', 'Sommer']
     },
     // - Shopping -  NB! Ikke satt for dette stedet
@@ -475,7 +475,7 @@ export const placeData = [
     {
         id: 24,
         boroughId: 3,
-        name: 'Øyhopping i Oslofjorden',
+        name: 'Øyhopping',
         image: 'øyhopping.jpg',
         address: 'Rådhusbrygge 4, 0160 Oslo',
         categoryId: 3,
@@ -537,7 +537,7 @@ export const placeData = [
     {
         id: 27,
         boroughId: 4,
-        name: 'Café hjemme hos svigers',
+        name: 'Hjemme hos svigers',
         image: 'cafe-svigers.jpg',
         address: 'Fredriksborgveien 16, 0286 Oslo',
         categoryId: 1,
@@ -551,7 +551,7 @@ export const placeData = [
         },
         pricepoint: 'Middels',
         bio: 'Familiedrevet kafé og antikvitetsbutikk i det gamle postkontoret på Bygdøy. Her kan du også kjøpe både bordene, stolene og serviset du bruker i kafeen. Hjemme hos svigers serverer hjemmelagd mat laget fra bunnen: supper, sandwicher, salater, desserter og et stort utvalg forskjellige hamburgere. Rettene kan også lages gluten- og laktosefrie.',
-        types: ['Hjemmelaget', 'Husmannskost'],
+        types: ['Hjemmelaget'],
         tags: ['Uteservering', 'Lunch', 'Internasjonal']
     },
     // - Shopping NB! Ikke satt for dette stedet
@@ -867,7 +867,7 @@ export const placeData = [
     {
         id: 43,
         boroughId: 6,
-        name: 'Gunerius Shoppingsenter',
+        name: 'Gunerius senter',
         image: 'gunerius.jpg',
         address: 'Storgata 32, 0184 Oslo',
         categoryId: 2,
@@ -948,7 +948,7 @@ export const placeData = [
     {
         id: 47,
         boroughId: 6,
-        name: 'EKT Rideskole og Husdyrpark',
+        name: 'EKT Rideskole',
         image: 'ekt.jpg',
         address: 'Ekebergveien 99, 1181 Oslo',
         categoryId: 3,
@@ -1044,14 +1044,14 @@ export const placeData = [
         },
         pricepoint: 'Middels',
         bio: 'Hjemmekoselig restaurant i Vikaterrassen med ett eneste langbord med plass til 24 gjester som alle spiser den samme maten. Her er det rom for gode samtaler med både gamle og nye venner!',
-        types: ['Kortreist', 'Ferske råvarer', 'Kjøtt'],
+        types: ['Kortreist', 'Ferske råvarer'],
         tags: ['Uformelt', 'Internasjonal', 'Økologisk']
     },
     // - Shopping
     {
         id: 52,
         boroughId: 7,
-        name: 'Maschmanns Matmarked',
+        name: 'Maschmanns',
         image: 'maschmanns.jpg',
         address: 'Karenslyst allé 51, 0278 Oslo',
         categoryId: 2,
@@ -1065,7 +1065,7 @@ export const placeData = [
         },
         pricepoint: 'Middels',
         bio: 'Ferskvaremarked på Skøyen med betjente avdelinger for kjøtt, sjømat og ost, pluss et stort utvalg tørrvarer og kondimenter fra kvalitetsprodusenter i Norge og Europa.',
-        types: ['Matmarked', 'Ferske råvarer'],
+        types: ['Matmarked'],
         tags: ['Uformelt', 'Internasjonal', 'Økologisk']
     },
     {
@@ -1249,7 +1249,7 @@ export const placeData = [
         },
         pricepoint: 'Middels',
         bio: 'Et av Oslos mest ærverdige motevarehus, med beliggenhet midt på paradegaten Karl Johan mellom Stortinget og Slottet.',
-        types: ['Klær', 'Smykker', 'Bokhandel'],
+        types: ['Klær', 'Smykker'],
         tags: ['Uformelt', 'Sosialt', 'Mote']
     },
     {
@@ -1358,7 +1358,7 @@ export const placeData = [
     {
         id: 67,
         boroughId: 9,
-        name: 'Frognerseteren - Restaurant Finstua',
+        name: 'Restaurant Finstua',
         image: 'finstua.jpg',
         address: 'Holmenkollveien 200, 0791 Oslo',
         categoryId: 1,
