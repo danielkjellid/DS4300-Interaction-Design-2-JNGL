@@ -9,6 +9,7 @@ import { reviewData } from "../data/reviews";
 
 Vue.use(Vuex);
 
+// application store
 export default new Vuex.Store({
   state: {
     boroughs: [],
@@ -45,13 +46,15 @@ export default new Vuex.Store({
     INIT_REVIEWS(state, reviews) {
       state.reviews = reviews;
     },
-    // mutation to initialize the favoritesData array, takes boroughs as an arg
+    // mutation to initialize the favoritesData array, takes favorites as an arg
     INIT_FAVORITES(state, favorites) {
       state.favorites = favorites;
     },
+    // mutation to add favorites to store, takes favorite as an arg
     ADD_FAVORITE(state, favorite) {
       state.favorites = [...state.favorites, favorite];
     },
+    // mutation to remove favortie from store. takes id as an arg
     REMOVE_FAVORITE(state, id) {
       state.favorites = state.favorites.filter((f) => f.id !== id);
     },
@@ -59,6 +62,7 @@ export default new Vuex.Store({
     SET_LOCATION(state, location) {
       state.selectedBorough = location;
     },
+    // mutation to add the ability to regret removal of favorites
     SET_REGRET(state, place) {
       state.regret = place;
     },
@@ -76,12 +80,14 @@ export default new Vuex.Store({
           break;
       }
     },
+    // mutation for adding a review to the store, takes review as an arg
     ADD_REVIEW(state, review) {
       state.reviews = [...state.reviews, review];
     },
   },
   actions: {
     // actions to initialize mutations with data
+    // init actions is fires on application load, dispatched in App.vue
     initBoroughs: ({ commit }) => {
       commit("INIT_BOROUGHS", boroughsData);
     },
@@ -106,9 +112,6 @@ export default new Vuex.Store({
     updateTooltipShown: ({ commit }, type) => {
       commit("UPDATE_TOOLTIP_SHOWN", type);
     },
-    setModal: ({ commit }, modal) => {
-      commit("SET_MODAL", modal);
-    },
     // action to select location, and update state
     selectLocation: ({ commit }, location) => {
       // commit SET_LOCATION mutation with location as arg
@@ -122,28 +125,35 @@ export default new Vuex.Store({
     },
   },
   getters: {
+    // getters get data accross the application
     getBoroughs: (state) => {
       return state.boroughs;
     },
+    // getter for getting all categories in store
     getCategories: (state) => {
       return state.categories;
     },
+    // getter for getting all places in store
     getPlaces: (state) => {
       return state.places;
     },
+    // getter for getting all favorites in store
     getFavorites: (state) => {
       return state.favorites;
     },
+    // getter for getting place based on ID
     getPlace: (state) => (id) => {
       return state.places.find((place) => place.id === id);
     },
+    // getter for getting selected location
     getLocation: (state) => {
-      // return selectedBorough array
       return state.selectedBorough;
     },
+    // getter for getting regretable favorite removal
     getRegret: (state) => {
       return state.regret;
     },
+    // getter for getting user based on ID
     getUser: (state) => (id) => {
       return state.users.find((user) => user.id === id);
     },
@@ -159,15 +169,15 @@ export default new Vuex.Store({
           return false;
       }
     },
-    getModal: (state) => {
-      return state.modal;
-    },
+    // getter for getting all reviews in the reviews array
     getReviews: (state) => {
       return state.reviews;
     },
+    // getter for getting reviews that belongs to each respected place
     getPlaceReviews: (state) => (id) => {
       return state.reviews.filter((review) => review.placeId === id);
     },
+    // getter for getting reviews a user has done
     getUserReviews: (state) => (id) => {
       return state.reviews.filter((review) => review.userId === id)
     },

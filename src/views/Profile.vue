@@ -1,5 +1,7 @@
 <template>
+  <!-- view for displaying a user profile -->
   <div>
+    <!-- check if user exists -->
     <div v-if="user">
       <div v-if="user.id === 3">
         <!-- your user data -->
@@ -16,40 +18,48 @@
         <div class="px-5 py-5">
           <app-profile-meta :user="user"></app-profile-meta>
           <app-profile-bio class="mt-5" :bio="user.bio" :myAccount="false"></app-profile-bio>
-          <app-profile-reviews class="mt-5" :reviews="reviewsByUser" :myAccount="true"></app-profile-reviews>
+          <app-profile-review-list class="mt-5" :reviews="reviewsByUser" :myAccount="true"></app-profile-review-list>
         </div>
       </div>
     </div>
+    <!-- if user not found -->
     <div v-else>
-      <!-- user not found -->
-      <app-404></app-404>
+      <app-core-404></app-core-404>
     </div>
-  
+
   </div>
 </template>
 
 <script>
+// CORE IMPORTS
+import CoreNotFound from '../components/Core404'
+
+// MODULE IMPORTS
 import ProfileHeader from '../components/ProfileHeader'
 import ProfileMeta from '../components/ProfileMeta'
 import ProfileBio from '../components/ProfileBio'
-import ProfileReviews from '../components/ProfileReviews'
-import NotFound from '../components/404'
+import ProfileReviewList from '../components/ProfileReviewList'
 
 export default {
-  computed: {
-    user() {
-      return this.$store.getters.getUser(parseInt(this.$route.params.id))
-    },
-    reviewsByUser() {
-      return this.$store.getters.getUserReviews(parseInt(this.$route.params.id))
-    }
-  },
+  name: 'Profile',
   components: {
     'app-profile-header': ProfileHeader,
     'app-profile-meta': ProfileMeta,
     'app-profile-bio': ProfileBio,
-    'app-profile-reviews': ProfileReviews,
-    'app-404': NotFound
+    'app-profile-review-list': ProfileReviewList,
+    'app-core-404': CoreNotFound
+  },
+  computed: {
+    // method for getting user
+    user() {
+      // gets user from store based on id in route
+      return this.$store.getters.getUser(parseInt(this.$route.params.id))
+    },
+    // method for getting reviews done by user
+    reviewsByUser() {
+      // gets reviews from store based on userId in route
+      return this.$store.getters.getUserReviews(parseInt(this.$route.params.id))
+    }
   },
 }
 </script>

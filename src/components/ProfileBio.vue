@@ -1,4 +1,5 @@
 <template>
+  <!-- component to dusplay profile bio -->
   <div>
     <h1 v-if="myAccount" class="text-lg font-medium text-gray-800">Min Biografi</h1>
     <h1 v-else class="text-lg font-medium text-gray-800">Biografi</h1>
@@ -10,6 +11,7 @@
 
 <script>
 export default {
+  name: 'ProfileBio',
   props: {
     bio: {
       type: String,

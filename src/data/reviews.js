@@ -1,3 +1,7 @@
+// reviews in the application
+// is linked to user through userId
+// is linked to place trough placeId
+
 export const reviewData = [
   {
     id: 1,

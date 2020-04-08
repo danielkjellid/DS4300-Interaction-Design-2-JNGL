@@ -11,14 +11,6 @@
             <div class="content">
               <!-- content -->
               <router-view></router-view>
-                <!--
-                <app-modal
-                  tooltipType="add_favorite"
-                  icon="lightbulb.svg"
-                  header="Ballefrans"
-                  info="Visste du at du kan markere steder som favoritter ved å swipe til høyre?"
-                ></app-modal>
-                -->
               <!-- content end -->
             </div>
             <!-- router links navigation -->
@@ -32,17 +24,18 @@
 </template>
 
 <script>
+// GLOBAL IMORTS
 import Footer from './components/TheFooter'
 import Header from './components/TheHeader'
-//import Modal from './components/Modal'
 
 export default {
+  name: 'App',
   components: {
     'app-header': Header,
     'app-footer': Footer,
-    //'app-modal': Modal
   },
   created() {
+    // add data to application
     this.$store.dispatch('initBoroughs')
     this.$store.dispatch('initCategories')
     this.$store.dispatch('initPlaces')

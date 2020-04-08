@@ -1,26 +1,30 @@
 <template>
-<div>
+  <!-- view for displaing a list over boroughs -->
+  <div>
     <div class="bg-white bottom-list">
       <div class="flex items-center justify-center py-5">
         <h1 class="text-base font-medium text-gray-800">Velg posisjon</h1>
       </div>
-      <app-borough-item 
-        v-for="borough in getBoroughs" 
-        :key="borough.id"
-        :borough="borough"
-      >
-      </app-borough-item>
+      <!-- list over boroughs -->
+      <app-position-borough-item v-for="borough in getBoroughs" :key="borough.id" :borough="borough">
+      </app-position-borough-item>
     </div>
-    <app-borough-search :query.sync="query" :searchActive="searchActive" :boroughs="getBoroughs"></app-borough-search>
-</div>
-
+    <!-- borough search modal -->
+    <app-position-borough-list-search-modal :query.sync="query" :searchActive="searchActive" :boroughs="getBoroughs"></app-position-borough-list-search-modal>
+  </div>
 </template>
 
 <script>
-import BoroughSearchModal from '../components/BoroughSearchModal'
-import BoroughItem from '../components/BoroughItem'
+// MODULE IMPORTS
+import PositionBoroughListSearchModal from '../components/PositionBoroughListSearchModal'
+import PositionBoroughItem from '../components/PositionBoroughItem'
 
 export default {
+  name: 'Position',
+  components: {
+    'app-position-borough-list-search-modal': PositionBoroughListSearchModal,
+    'app-position-borough-item': PositionBoroughItem,
+  },
   data() {
     return {
       query: '',
@@ -32,10 +36,6 @@ export default {
     getBoroughs() {
       return this.$store.getters.getBoroughs
     },
-  },
-  components: {
-    'app-borough-search': BoroughSearchModal,
-    'app-borough-item': BoroughItem,
   },
 }
 </script>

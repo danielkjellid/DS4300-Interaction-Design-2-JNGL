@@ -10,7 +10,7 @@ import Place from '../views/Place'
 
 Vue.use(VueRouter)
 
-// define project routes
+// application routes and view associated
 const routes = [
   {
     path: '/',

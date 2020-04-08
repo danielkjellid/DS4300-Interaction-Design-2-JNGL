@@ -1,3 +1,6 @@
+// categories in the application
+// is linked to places through id
+
 export const categoryData = [
     {
         id: 1,

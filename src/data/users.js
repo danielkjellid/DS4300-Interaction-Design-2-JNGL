@@ -1,3 +1,5 @@
+// users in the application
+
 export const userData = [
   {
     id: 1,
