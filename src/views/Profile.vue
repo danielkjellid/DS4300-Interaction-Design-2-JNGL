@@ -9,7 +9,7 @@
         <div class="px-5 py-5">
           <app-profile-meta :user="user"></app-profile-meta>
           <app-profile-bio class="mt-5" :bio="user.bio" :myAccount="true"></app-profile-bio>
-          <app-profile-reviews class="mt-5" :reviews="reviewsByUser" :myAccount="true"></app-profile-reviews>
+          <app-profile-review-list class="mt-5" :reviews="reviewsByUser" :myAccount="true"></app-profile-review-list>
         </div>
       </div>
       <div v-else>

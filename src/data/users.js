@@ -10,7 +10,7 @@ export const userData = [
     favorites: 119,
     followers: 4321,
     following: 231,
-    bio: 'Ola',
+    bio: 'Skal ikke lyve, ganske god på allmennkunnskap. Jeg har til og med vunnet noen greie summer noen ganger. Ellers liker jeg god mat og god stemning!',
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const userData = [
     favorites: 14,
     followers: 43,
     following: 231,
-    bio: 'Kari',
+    bio: 'Ny i Oslo, og trenger noen til å vise meg rundt. Pizza, vin og gode venner er noen av mine favoritting.',
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ export const userData = [
     favorites: 541,
     followers: 321,
     following: 131,
-    bio: 'Tom',
+    bio: 'Født og oppvokst i Oslogryta! Resier rundt omkring i vår vakre hovedstad for å finne skjulte skatter. Dør for en god burger!',
   },
   {
     id: 4,
@@ -43,6 +43,6 @@ export const userData = [
     favorites: 265,
     followers: 121,
     following: 31,
-    bio: 'Ricardo',
+    bio: 'Irsk kar, liker å møte nye mennesker og elsker å reise, kunst og å lage musikk. Har akkurat flyttet til Oslo grunnet jobb, og er ute etter å bli kjent med byen.',
   },
 ]
