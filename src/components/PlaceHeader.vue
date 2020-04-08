@@ -10,7 +10,7 @@
             </div>
           </div>
       </div>
-      <div class="flex items-center justify-between px-5 py-5 bg-gray-100 shadow">
+      <div class="grid grid-cols-3 px-5 py-5 bg-gray-100 shadow">
           <a :href="`https://www.google.com/maps/search/?api=1&query=${nameToQuery}`" class="block m-auto text-sm font-medium text-center text-gray-900">
               <div class="flex items-center w-12 h-12 mb-2 border-2 border-gray-300 rounded-full">
                   <svg viewBox="0 0 24 24" class="w-6 h-6 m-auto text-gray-600" fill="currentColor">
