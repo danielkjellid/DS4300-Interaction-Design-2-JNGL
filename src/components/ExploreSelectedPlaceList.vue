@@ -3,7 +3,7 @@
   <!-- this list devides the places into its respected categorites -->
   <div>
     <!-- loop to display each category -->
-    <div v-for="(category, index) in categories" :key="category.id" :class="{ 'mt-10': index != 0 }">
+    <div v-for="(category, index) in filteredCategories" :key="category.id" :class="{ 'mt-10': index != 0 }">
       <div class="flex justify-between">
         <h1 class="text-lg font-medium text-gray-800">{{ category.name }}</h1>
         <!-- router link to display all places -->
@@ -16,14 +16,11 @@
       </div>
       <div class="mt-4 bg-white rounded-lg shadow">
         <!-- loop to append places to each respected category -->
-        <div v-for="place in places" :key="place.id">
-          <!-- check to dynamically display places based on their borough affiliation -->
-          <div v-if="place.boroughId == location.boroughId">
+        <div v-for="place in filteredPlaces" :key="place.id">
             <!-- check to append each placeList based on category -->
             <div v-if="place.categoryId == category.id">
               <app-core-place-item :place="place"></app-core-place-item>
             </div>       
-          </div>
         </div>
         <!-- router link to display all places -->
         <router-link to="/list" class="block py-3 mx-auto text-sm text-center text-gray-700">
@@ -56,5 +53,13 @@ export default {
       required: true
     }
   },
+  computed: {
+    filteredPlaces() {
+      return this.places.filter(place => place.boroughId === this.location.boroughId)
+    },
+    filteredCategories() {
+      return this.categories.filter(category => this.filteredPlaces.find(place => category.id === place.categoryId))
+    }
+  }
 }
 </script>
