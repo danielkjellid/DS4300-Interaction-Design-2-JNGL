@@ -10,8 +10,8 @@
         <app-place-info :data="place" class="mt-5"></app-place-info>
         <app-place-assesment-list :environmentValue="assesment('environment')" :selectionValue="assesment('selection')" :serviceValue="assesment('service')" :valueValue="assesment('value')" :totalValue="assesmentValue" class="mt-5"></app-place-assesment-list>
         <app-place-review-list :reviews="getPlaceReviews" @toggleModal="reviewActive = !reviewActive" class="mt-5"></app-place-review-list>
-        <app-place-review-modal :reviewActive="reviewActive" @close="reviewActive = !reviewActive">
-        </app-place-review-modal>
+        <app-place-review-modal :reviewActive="reviewActive" @close="confirmReview"></app-place-review-modal>
+        <app-core-modal @close="confimationModalActive = false" v-if="confimationModalActive" icon="cross.svg" header="Anmeldelse publisert!" info="Takk for at du tar deg tiden til å komme med anmeldelser."></app-core-modal>
       </div>
     </div>
     <!-- if the place does not exist, display 404 -->
@@ -24,6 +24,7 @@
 <script>
 // CORE IMPORTS
 import CoreNotFound from '../components/Core404'
+import CoreModal from '../components/CoreModal'
 
 // MODULE IMPORTS
 import PlaceHeader from '../components/PlaceHeader'
@@ -37,6 +38,7 @@ export default {
   name: 'Place',
   components: {
     'app-core-404': CoreNotFound,
+    'app-core-modal': CoreModal,
     'app-place-header': PlaceHeader,
     'app-place-meta': PlaceMeta,
     'app-place-info': PlaceInfo,
@@ -47,6 +49,7 @@ export default {
   data() {
     return {
       reviewActive: false,
+      confimationModalActive: false,
     }
   },
   computed: {
@@ -69,5 +72,11 @@ export default {
       return this.$store.getters.getPlaceAssesmentValue(parseInt(this.$route.params.id))
     },
   },
+  methods: {
+    confirmReview() {
+      this.reviewActive = false
+      this.confimationModalActive = true
+    }
+  }
 }
 </script>

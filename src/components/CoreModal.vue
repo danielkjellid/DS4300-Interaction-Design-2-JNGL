@@ -65,6 +65,7 @@ export default {
       // when the "close modal" button is clicked, update store to not show modal again
       // this is done using the updateTooltipShown action
       this.tooltipType && this.$store.dispatch("updateTooltipShown", this.tooltipType);
+      this.$emit('close')
     }
   },
 }
