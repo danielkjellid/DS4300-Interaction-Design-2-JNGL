@@ -55,7 +55,8 @@ export default {
     place: {
       type: Object,
       required: true
-    }
+    },
+    favoriteBtnClick: Function
   },
   data() {
     return {
@@ -78,11 +79,13 @@ export default {
       // conditional check to check if the place is already added to favorites
       if (!this.$store.getters.getFavorites.find(favorite => favorite.id === this.place.id)) {
         // if not, add it
+        this.favoriteBtnClick();
         this.$store.dispatch("addFavorite", this.place);
       } else {
         // if it is, remove it, and add an option to regret action, re-adding the place to favorites
-        this.$store.dispatch("removeFavorite", this.place.id);
-        this.$store.dispatch("setRegret", this.place)
+
+        this.$store.dispatch("setWillDelete", this.place);
+        console.log(this.$store.getters.getWillDelete)
       }
     },
     // method for cheking if the place is already a part of the favorites array

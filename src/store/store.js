@@ -24,6 +24,7 @@ export default new Vuex.Store({
       removeFavorite: false,
     },
     regret: undefined,
+    willDelete: undefined
   },
   mutations: {
     // mutation to initialize the boroughsData array, takes boroughs as an arg
@@ -84,6 +85,9 @@ export default new Vuex.Store({
     ADD_REVIEW(state, review) {
       state.reviews = [...state.reviews, review];
     },
+    SET_WILL_DELETE(state, place) {
+      state.willDelete = place;
+    }
   },
   actions: {
     // actions to initialize mutations with data
@@ -119,6 +123,9 @@ export default new Vuex.Store({
     },
     setRegret: ({ commit }, place) => {
       commit("SET_REGRET", place);
+    },
+    setWillDelete: ({ commit }, place) => {
+      commit("SET_WILL_DELETE", place);
     },
     addReview: ({ commit }, review) => {
       commit("ADD_REVIEW", review);
@@ -181,5 +188,8 @@ export default new Vuex.Store({
     getUserReviews: (state) => (id) => {
       return state.reviews.filter((review) => review.userId === id)
     },
+    getWillDelete: (state) => {
+      return state.willDelete;
+    }
   },
 });

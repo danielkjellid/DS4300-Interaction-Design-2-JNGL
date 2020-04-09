@@ -10,6 +10,7 @@
             <!-- header end -->
             <div class="content">
               <!-- content -->
+
               <router-view></router-view>
               <!-- content end -->
             </div>
@@ -32,7 +33,7 @@ export default {
   name: 'App',
   components: {
     'app-header': Header,
-    'app-footer': Footer,
+    'app-footer': Footer
   },
   created() {
     // add data to application

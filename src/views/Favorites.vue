@@ -18,7 +18,7 @@
             </svg>
           </div>
           <!-- helper text showing recent removal and option to regret -->
-          <p class="m-2 text">Du har nylig fjernet {{this.$store.getters.getRegret && this.$store.getters.getRegret.name}} fra favoritter. <button @click="handleRegret(true)" class="font-bold btnText bor">Angre?</button></p> 
+          <p class="m-3 text">Du har nylig fjernet {{this.$store.getters.getRegret && this.$store.getters.getRegret.name}} fra favoritter. <button @click="handleRegret(true)" class="font-bold btnText bor">Angre?</button></p> 
         </div>
         <!-- button to remove the pane -->
         <button @click="handleRegret(false)" class="absolute top-0 right-0 m-3">
@@ -30,8 +30,10 @@
       <!-- check if there are favorties in the favorites array in the store -->
       <div v-if="getFavorites.length > 0">
         <!-- if it is, display favorites -->
-        <app-list-place-list btnText="Slett" type="remove_favorite" class="mt-4 rounded-t-lg" :places="filteredPlaces"></app-list-place-list>
+        <app-list-place-list btnText="Slett" type="remove_favorite" class="my-4 rounded-t-lg" :places="filteredPlaces"></app-list-place-list>
         <app-core-modal tooltipType="remove_favorite" icon="cross.svg" header="Fjerne favoritter" info="Visste du at du kan fjerne steder fra favoritter ved å trykke på hjerte ikonet?"></app-core-modal>
+        <app-core-msg-modal v-if="!!getWillDelete" icon="deletewarning.svg" header="Fjern favoritt" :info="'Er du sikker på at du ønsker å fjerne ' + getWillDelete.name +  ' som favoritt?'" :onClick="resetWillDelete" :deletePlace="getWillDelete"></app-core-msg-modal>
+
       </div>
       <!-- if there is no favorites display error message -->
       <div v-else>
@@ -48,6 +50,7 @@
 import CoreSearchBar from '../components/CoreSearchBar'
 import CoreModal from '../components/CoreModal'
 import CoreNoData from '../components/CoreNoData'
+import CoreMsgModal from '../components/CoreMsgModal'
 
 // MODULE IMPORTS
 import ListPlaceList from '../components/ListPlaceList'
@@ -58,7 +61,9 @@ export default {
     'app-list-place-list': ListPlaceList,
     'app-core-search-bar': CoreSearchBar,
     'app-core-modal': CoreModal,
-    'app-core-no-data': CoreNoData
+    'app-core-no-data': CoreNoData,
+    'app-core-msg-modal': CoreMsgModal,
+
   },
   data() {
     return {
@@ -73,6 +78,9 @@ export default {
       return this.$store.getters.getFavorites.filter(el => {
         return el.name.toLowerCase().match(this.query.toLowerCase());
       })
+    },
+    getWillDelete() {
+      return this.$store.getters.getWillDelete;
     },
     // method for getting all favorites
     getFavorites() {
@@ -95,6 +103,9 @@ export default {
     getRegret() {
       // gets regret using the getter getRegret
       return this.$store.getters.getRegret;
+    },
+    resetWillDelete() {
+      this.$store.dispatch("setWillDelete", undefined)
     }
   }
 }
