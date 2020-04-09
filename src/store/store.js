@@ -145,6 +145,45 @@ export default new Vuex.Store({
     getPlace: (state) => (id) => {
       return state.places.find((place) => place.id === id);
     },
+    // getter for getting value of assesment
+    getPlaceAssesment: (state, getters) => (placeId) => (assesment) => {
+
+      const averageAmount = state.reviews.filter((review) => review.placeId === placeId)
+                          // reduce array to get total value of assesment arg
+                          .reduce((prev, cur) => prev + cur.review[assesment], 0) 
+                            // divide by the amount of reviews to get average
+                            / getters.getPlaceAmountOfReviews(placeId)
+
+      // if there isnt any review the variable will return NaN
+      // therefore we check is the number is NaN, and if it is, returnes 0 instead                      
+      if(isNaN(averageAmount)) {
+        return 0
+      } else {
+        return averageAmount
+      }
+    },
+    // getter for getting total average assesment value
+    getPlaceAssesmentValue: (state, getters) => (id) => {
+      // get reviews accosiated with palce
+      const assesment = state.reviews.filter((review) => review.placeId === id)
+                        // reduce array to get total value of environment, selection, service and value
+                        .reduce((prev, cur) => prev + (
+                          ((cur.review.environment) + (cur.review.selection) + (cur.review.service) + (cur.review.value))/4), 0)
+                            // divide by the amount of reviews to get average
+                            / getters.getPlaceAmountOfReviews(id)
+
+      // if there isnt any review the variable will return NaN
+      // therefore we check is the number is NaN, and if it is, returnes 0 instead                      
+      if(isNaN(assesment)) {
+        return 0
+      } else {
+        return assesment
+      }
+    },
+    // getter for getting amount of reviews made to a place
+    getPlaceAmountOfReviews: (state) => (id) => {
+      return state.reviews.filter((review) => review.placeId === id).length
+    },
     // getter for getting selected location
     getLocation: (state) => {
       return state.selectedBorough;

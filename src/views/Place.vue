@@ -6,9 +6,9 @@
       <!-- display header, meta, info, assesment and reviews -->
       <app-place-header :data="place"></app-place-header>
       <div class="px-5 py-5">
-        <app-place-meta :data="place"></app-place-meta>
+        <app-place-meta :place="place" :assesmentValue="assesmentValue"></app-place-meta>
         <app-place-info :data="place" class="mt-5"></app-place-info>
-        <app-place-assesment-list :data="place" class="mt-5"></app-place-assesment-list>
+        <app-place-assesment-list :environmentValue="assesment('environment')" :selectionValue="assesment('selection')" :serviceValue="assesment('service')" :valueValue="assesment('value')" :totalValue="assesmentValue" class="mt-5"></app-place-assesment-list>
         <app-place-review-list :reviews="getPlaceReviews" @toggleModal="reviewActive = !reviewActive" class="mt-5"></app-place-review-list>
         <app-place-review-modal :reviewActive="reviewActive" @close="reviewActive = !reviewActive">
         </app-place-review-modal>
@@ -59,7 +59,15 @@ export default {
     getPlaceReviews() {
       // getiing reviews of place based in id in route
       return this.$store.getters.getPlaceReviews(parseInt(this.$route.params.id))
-    }
+    },
+    // method for getting values of different assesments in store
+    assesment(assesment) {
+      return this.$store.getters.getPlaceAssesment(parseInt(this.$route.params.id), assesment)
+    },
+    // method for getting total assesment value from store
+    assesmentValue() {
+      return this.$store.getters.getPlaceAssesmentValue(parseInt(this.$route.params.id))
+    },
   },
 }
 </script>
