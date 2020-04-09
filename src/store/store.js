@@ -154,7 +154,7 @@ export default new Vuex.Store({
     },
     // getter for getting value of assesment
     getPlaceAssesment: (state, getters) => (placeId) => (assesment) => {
-
+      // get reviews associated with place
       const averageAmount = state.reviews.filter((review) => review.placeId === placeId)
                           // reduce array to get total value of assesment arg
                           .reduce((prev, cur) => prev + cur.review[assesment], 0) 
@@ -171,7 +171,7 @@ export default new Vuex.Store({
     },
     // getter for getting total average assesment value
     getPlaceAssesmentValue: (state, getters) => (id) => {
-      // get reviews accosiated with palce
+      // get reviews associated with palce
       const assesment = state.reviews.filter((review) => review.placeId === id)
                         // reduce array to get total value of environment, selection, service and value
                         .reduce((prev, cur) => prev + (

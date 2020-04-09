@@ -2,12 +2,12 @@
   <!-- component to display a modal -->
   <div class="absolute inset-0 z-50 flex items-end w-full faded" v-if="show && !tooltipShown">
     <div class="p-6 m-3 text-center bg-white border rounded-lg z-60 modal" v-if="show && !tooltipShown">
-      <div class="flex justify-center py-3">
+      <div class="flex justify-center py-5">
         <!-- aquire icon used in the modal icon-circle -->
         <img :src="require(`@/assets/images/modalicons/${icon}`)" />
       </div>
-      <div class="my-3">
-        <div class="mb-2 text-lg font-medium text-black">
+      <div class="mb-8">
+        <div class="mb-3 text-lg font-medium text-black">
           <!-- modal header text -->
           <p> {{ header }} </p>
         </div>

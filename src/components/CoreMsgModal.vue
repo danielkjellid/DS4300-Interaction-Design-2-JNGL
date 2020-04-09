@@ -2,12 +2,12 @@
   <!-- component to display a modal -->
   <div class="absolute inset-0 z-50 flex items-end w-full faded">
     <div class="p-6 m-3 text-center bg-white border rounded-lg z-60 modal">
-      <div class="flex justify-center py-3">
+      <div class="flex justify-center py-5">
         <!-- aquire icon used in the modal icon-circle -->
         <img :src="require(`@/assets/images/modalicons/${icon}`)" />
       </div>
-      <div class="my-3">
-        <div class="mb-2 text-lg font-medium text-black">
+      <div class="mb-8">
+        <div class="mb-3 text-lg font-medium text-black">
           <!-- modal header text -->
           <p> {{ header }} </p>
         </div>
@@ -17,7 +17,7 @@
         </div>
       </div>
       <!-- primary button to close modal -->
-      <app-core-primary-btn class="bg-red-200 text-red-800 hover:text-red-900 hover:bg-red-300 mb-2" v-if="!!deletePlace" @click.native="confirmDelete" :btnText="'Bekreft'"></app-core-primary-btn>
+      <app-core-primary-btn class="mb-2 text-red-800 bg-red-200 hover:text-red-900 hover:bg-red-300" v-if="!!deletePlace" @click.native="confirmDelete" :btnText="'Bekreft'"></app-core-primary-btn>
       <app-core-primary-btn @click.native="onClick" :btnText="'Lukk'"></app-core-primary-btn>
     </div>
   </div>

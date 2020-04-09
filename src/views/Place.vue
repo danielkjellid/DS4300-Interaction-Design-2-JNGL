@@ -11,7 +11,7 @@
         <app-place-assesment-list :environmentValue="assesment('environment')" :selectionValue="assesment('selection')" :serviceValue="assesment('service')" :valueValue="assesment('value')" :totalValue="assesmentValue" class="mt-5"></app-place-assesment-list>
         <app-place-review-list :reviews="getPlaceReviews" @toggleModal="reviewActive = !reviewActive" class="mt-5"></app-place-review-list>
         <app-place-review-modal :reviewActive="reviewActive" @close="confirmReview"></app-place-review-modal>
-        <app-core-modal @close="confimationModalActive = false" v-if="confimationModalActive" icon="cross.svg" header="Anmeldelse publisert!" info="Takk for at du tar deg tiden til å komme med anmeldelser."></app-core-modal>
+        <app-core-modal @close="confimationModalActive = false" v-if="confimationModalActive" icon="confirm.svg" header="Anmeldelse publisert!" info="Takk for at du tar deg tiden til å komme med anmeldelser."></app-core-modal>
       </div>
     </div>
     <!-- if the place does not exist, display 404 -->
