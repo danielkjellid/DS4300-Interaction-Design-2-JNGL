@@ -67,10 +67,10 @@ export default {
       reviewText: true,
       reviewSlider: false,
       review: '',
-      environmentValue: 0,
-      selectionValue: 0,
-      serviceValue: 0,
-      totalValue: 0,
+      environmentValue: 1,
+      selectionValue: 1,
+      serviceValue: 1,
+      totalValue: 1,
     }
   },
   computed: {
@@ -93,12 +93,27 @@ export default {
         id: this.reviews.length + 1,
         userId: 3,
         placeId: parseInt(this.$route.params.id),
-        review: this.review,
+        review: {
+          text: this.review,
+          environment: parseInt(this.environmentValue),
+          selection: parseInt(this.selectionValue),
+          service: parseInt(this.serviceValue),
+          value: parseInt(this.totalValue)
+        },
         timeStamp: new Date()
       }
 
       // dispatch review to store
       this.$store.dispatch('addReview', review)
+
+      // reset data to "clean" form
+      this.reviewText = true,
+      this.reviewSlider = false
+      this.review = ''
+      this.environmentValue = 1
+      this.selectionValue = 1
+      this.serviceValue = 1
+      this.totalValue = 1
 
       // emit to parent component to close the modal
       this.$emit('close')

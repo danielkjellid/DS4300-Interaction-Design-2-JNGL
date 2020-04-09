@@ -4,7 +4,7 @@
     <label :for="id" class="text-sm font-medium text-gray-800">Hvor mange stjerner vil du gi på {{ name }}?</label>
     <div class="flex items-center justify-between mt-2">
       <!-- range slider which is synced with parent component -->
-      <input @input="updateRangeValue" value="0" :id="id" class="mr-4" type="range" min="0" max="5">
+      <input @input="updateRangeValue" value="1" :id="id" class="mr-4" type="range" min="1" max="5">
       <div>
         <span class="font-medium text-gray-800">{{ rangeValue }}</span>
         <span class="font-medium text-gray-600">/5</span>

@@ -1,11 +1,13 @@
 <template>
   <!-- component to add place assesment items to a contained list -->
-  <div class="mt-5 bg-white rounded shadow">
-    <app-place-assesment-item :name="'Miljø'" :conditional="data.reviews.environment"></app-place-assesment-item>
-    <app-place-assesment-item :name="'Meny'" :conditional="data.reviews.selection"></app-place-assesment-item>
-    <app-place-assesment-item :name="'Service'" :conditional="data.reviews.service"></app-place-assesment-item>
-    <app-place-assesment-item :name="'Verdi for pengene'" :conditional="data.reviews.value"></app-place-assesment-item>
-    <app-place-assesment-item :name="'Totalt ' + (data.reviews.environment + data.reviews.selection + data.reviews.service + data.reviews.value) + ' av 20'" :conditional="((data.reviews.environment + data.reviews.selection + data.reviews.service + data.reviews.value)/4)"></app-place-assesment-item>
+  <div>
+    <div class="mt-5 bg-white rounded shadow">
+      <app-place-assesment-item :name="'Miljø'" :conditional="environmentValue"></app-place-assesment-item>
+      <app-place-assesment-item :name="'Utvalg'" :conditional="selectionValue"></app-place-assesment-item>
+      <app-place-assesment-item :name="'Service'" :conditional="serviceValue"></app-place-assesment-item>
+      <app-place-assesment-item :name="'Verdi for pengene'" :conditional="valueValue"></app-place-assesment-item>
+      <app-place-assesment-item :name="'Totalt ' + parseInt(environmentValue + selectionValue + serviceValue + valueValue) + ' av 20'" :conditional="totalValue"></app-place-assesment-item>
+    </div>
   </div>
 </template>
 
@@ -19,8 +21,24 @@ export default {
     'app-place-assesment-item': PlaceAssesmentItem,
   },
   props: {
-    data: {
-      type: Object,
+    environmentValue: {
+      type: Number,
+      required: true,
+    },
+    selectionValue: {
+      type: Number,
+      required: true,
+    },
+    serviceValue: {
+      type: Number,
+      required: true,
+    },
+    valueValue: {
+      type: Number,
+      required: true,
+    },
+    totalValue: {
+      type: Number,
       required: true,
     }
   }
