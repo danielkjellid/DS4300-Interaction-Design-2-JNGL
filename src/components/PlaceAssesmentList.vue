@@ -3,9 +3,9 @@
   <div>
     <div class="mt-5 bg-white rounded shadow">
       <app-place-assesment-item :name="'Miljø'" :conditional="environmentValue"></app-place-assesment-item>
-      <app-place-assesment-item :name="'Miljø'" :conditional="selectionValue"></app-place-assesment-item>
-      <app-place-assesment-item :name="'Miljø'" :conditional="serviceValue"></app-place-assesment-item>
-      <app-place-assesment-item :name="'Miljø'" :conditional="valueValue"></app-place-assesment-item>
+      <app-place-assesment-item :name="'Utvalg'" :conditional="selectionValue"></app-place-assesment-item>
+      <app-place-assesment-item :name="'Service'" :conditional="serviceValue"></app-place-assesment-item>
+      <app-place-assesment-item :name="'Verdi for pengene'" :conditional="valueValue"></app-place-assesment-item>
       <app-place-assesment-item :name="'Totalt ' + parseInt(environmentValue + selectionValue + serviceValue + valueValue) + ' av 20'" :conditional="totalValue"></app-place-assesment-item>
     </div>
   </div>

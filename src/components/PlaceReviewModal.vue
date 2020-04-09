@@ -106,6 +106,15 @@ export default {
       // dispatch review to store
       this.$store.dispatch('addReview', review)
 
+      // reset data to "clean" form
+      this.reviewText = true,
+      this.reviewSlider = false
+      this.review = ''
+      this.environmentValue = 1
+      this.selectionValue = 1
+      this.serviceValue = 1
+      this.totalValue = 1
+
       // emit to parent component to close the modal
       this.$emit('close')
     },
