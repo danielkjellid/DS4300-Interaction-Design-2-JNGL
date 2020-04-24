@@ -16,7 +16,7 @@
           <p> {{ info }} </p>
         </div>
       </div>
-      <!-- primary button to close modal -->
+      <!-- primary button to close modal and danger button to confirm action -->
       <app-core-primary-btn class="mb-2 text-red-800 bg-red-200 hover:text-red-900 hover:bg-red-300" v-if="!!deletePlace" @click.native="confirmDelete" :btnText="'Bekreft'"></app-core-primary-btn>
       <app-core-primary-btn @click.native="onClick" :btnText="'Lukk'"></app-core-primary-btn>
     </div>
