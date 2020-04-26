@@ -2,6 +2,8 @@
   <!-- component to add a list the the explore route if there is a borough selected -->
   <!-- this list devides the places into its respected categorites -->
   <div>
+    <app-core-msg-modal v-if="showFavoriteModal" icon="favorite.svg" header="Ny favoritt" :info="getLastAddedFavorite" :onClick="closeModal"></app-core-msg-modal>
+    <app-core-msg-modal v-if="!!getWillDelete" icon="deletewarning.svg" header="Fjern favoritt" :info="'Er du sikker på at du ønsker å fjerne ' + getWillDelete.name +  ' som favoritt?'" :onClick="resetWillDelete" :deletePlace="getWillDelete"></app-core-msg-modal>
     <!-- loop to display each category -->
     <div v-for="(category, index) in filteredCategories" :key="category.id" :class="{ 'mt-10': index != 0 }">
       <div class="flex justify-between">
@@ -19,7 +21,7 @@
         <div v-for="place in filteredPlaces" :key="place.id">
             <!-- check to append each placeList based on category -->
             <div v-if="place.categoryId == category.id">
-              <app-core-place-item :place="place"></app-core-place-item>
+              <app-core-place-item :place="place" :favoriteBtnClick="showModal">"</app-core-place-item>
             </div>       
         </div>
         <!-- router link to display all places -->
@@ -32,12 +34,20 @@
 </template>
 
 <script>
-import CorePlaceItem from "./CorePlaceItem";
+import CorePlaceItem from "./CorePlaceItem"
+import CoreMsgModal from "../components/CoreMsgModal"
+
 
 export default {
   name: 'ExplioreSelectedPlaceList',
   components: {
-    "app-core-place-item": CorePlaceItem
+    "app-core-place-item": CorePlaceItem,
+    'app-core-msg-modal': CoreMsgModal
+  },
+  data() {
+    return {
+       showFavoriteModal: false
+    }
   },
   props: {
     places: {
@@ -51,7 +61,8 @@ export default {
     location: {
       type: Object,
       required: true
-    }
+    },
+    favoriteBtnClick: Function
   },
   computed: {
     // filter places based on selected location
@@ -61,6 +72,23 @@ export default {
     // filter categories based on filteredPlaces to remove unused categories
     filteredCategories() {
       return this.categories.filter(category => this.filteredPlaces.find(place => category.id === place.categoryId))
+    },
+     getWillDelete() {
+      return this.$store.getters.getWillDelete;
+    },
+    getLastAddedFavorite() {
+      return this.$store.getters.getFavorites.length && this.$store.getters.getFavorites[this.$store.getters.getFavorites.length - 1].name + " ble merket som favoritt, og kan finnes under favoritter"
+    }
+  },
+  methods: {
+    closeModal() {
+      this.showFavoriteModal = false;
+    },
+    showModal() {
+      this.showFavoriteModal = true;
+    },
+    resetWillDelete() {
+      this.$store.dispatch("setWillDelete", undefined)
     }
   }
 }
